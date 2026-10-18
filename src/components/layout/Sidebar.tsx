@@ -16,6 +16,7 @@ import {
   CheckSquare,
 } from 'lucide-react';
 import { db } from '../../services/db';
+import { PWAInstallButton } from '../common/PWAInstallButton';
 
 export type NavTab =
   | 'dashboard'
@@ -141,6 +142,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onTabChange }) => 
           );
         })}
       </nav>
+
+      {/* PWA Install Desktop/Phone Button */}
+      <PWAInstallButton variant="sidebar" />
 
       {/* Teacher Profile Card */}
       <div 

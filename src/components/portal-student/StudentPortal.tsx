@@ -25,6 +25,7 @@ import {
 import { db } from '../../services/db';
 import { formatDateVN, formatDateTimeVN, formatVND } from '../../utils/formatters';
 import { OnlineTestItem, QuestionBankItem, UserProfile } from '../../types';
+import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface StudentPortalProps {
   currentUser: UserProfile;
@@ -197,16 +198,22 @@ Em hãy thử áp dụng vào bài tập của mình xem nhé!`;
           </div>
         </div>
 
-        {/* Remaining lessons indicator */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-xs flex items-center gap-4 shrink-0">
-          <div>
-            <span className="text-blue-200 block text-[11px]">Gói học phí hiện tại:</span>
-            <span className="font-bold text-white text-sm font-mono">
-              Còn {tuitionSummary?.remainingLessons ?? 0} buổi học
-            </span>
-          </div>
-          <div className="w-9 h-9 rounded-xl bg-white text-blue-700 font-bold flex items-center justify-center text-sm font-mono shadow-xs">
-            {tuitionSummary?.remainingLessons ?? 0}
+        {/* Remaining lessons indicator & Install Button */}
+        <div className="flex items-center gap-3">
+          <PWAInstallButton
+            variant="pill"
+            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-md"
+          />
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-xs flex items-center gap-4 shrink-0">
+            <div>
+              <span className="text-blue-200 block text-[11px]">Gói học phí hiện tại:</span>
+              <span className="font-bold text-white text-sm font-mono">
+                Còn {tuitionSummary?.remainingLessons ?? 0} buổi học
+              </span>
+            </div>
+            <div className="w-9 h-9 rounded-xl bg-white text-blue-700 font-bold flex items-center justify-center text-sm font-mono shadow-xs">
+              {tuitionSummary?.remainingLessons ?? 0}
+            </div>
           </div>
         </div>
       </div>

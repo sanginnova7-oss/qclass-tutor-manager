@@ -13,10 +13,13 @@ import {
   FileSpreadsheet,
   ExternalLink,
   RefreshCw,
+  Smartphone,
+  Monitor,
 } from 'lucide-react';
 import { db } from '../../services/db';
 import { AppSettings } from '../../types';
 import { GoogleSheetsSyncModal } from '../modals/GoogleSheetsSyncModal';
+import { PWAInstallButton } from '../common/PWAInstallButton';
 
 export const SettingsView: React.FC = () => {
   const currentSettings = db.getSettings();
@@ -443,6 +446,56 @@ export const SettingsView: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Card: PWA & Device Installation */}
+      <div className="bg-gradient-to-r from-blue-50/80 via-indigo-50/50 to-white rounded-2xl border border-blue-200 p-6 shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <Download className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-sm font-bold text-slate-900">
+                  Cài đặt ứng dụng QClass ra Desktop / Điện thoại (PWA)
+                </h3>
+                <span className="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">
+                  Progressive Web App
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 mt-1">
+                Tạo lối tắt ứng dụng độc lập trên màn hình chính của máy tính (Windows/macOS) hoặc điện thoại (Android/iOS). Mở lên sử dụng toàn màn hình, tải tức thì và không phụ thuộc vào thanh địa chỉ trình duyệt.
+              </p>
+            </div>
+          </div>
+
+          <div className="shrink-0">
+            <PWAInstallButton variant="button" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs">
+          <div className="p-3 bg-white rounded-xl border border-blue-100 flex items-start gap-2.5">
+            <Monitor className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-slate-900">Máy tính (Desktop / Laptop)</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                Chạy như ứng dụng desktop độc lập trên thanh Taskbar / Dock, tối ưu giao diện thao tác nhanh phím tắt Ctrl+K.
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3 bg-white rounded-xl border border-blue-100 flex items-start gap-2.5">
+            <Smartphone className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-slate-900">Điện thoại (Android & iPhone)</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">
+                Icon app trên màn hình chính, mở nhanh cho giáo viên điểm danh tại lớp và phụ huynh tra cứu điểm số học phí.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Card 5: Supabase / PostgreSQL Schema */}

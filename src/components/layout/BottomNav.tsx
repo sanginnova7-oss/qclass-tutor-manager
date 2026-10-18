@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { NavTab } from './Sidebar';
 import { db } from '../../services/db';
+import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface BottomNavProps {
   currentTab: NavTab;
@@ -94,6 +95,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
                 <X className="w-4 h-4" />
               </button>
             </div>
+
+            {/* Install to Desktop/Mobile shortcut in drawer */}
+            <PWAInstallButton variant="menu-item" />
 
             <div className="grid grid-cols-2 gap-2.5">
               {moreTabs.map((tab) => {

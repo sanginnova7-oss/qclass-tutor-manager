@@ -5,6 +5,7 @@ import { db } from '../../services/db';
 import { formatDateVN } from '../../utils/formatters';
 import { realtimeService, RealtimeState } from '../../services/realtimeService';
 import { RealtimeStatusModal } from '../modals/RealtimeStatusModal';
+import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface TopBarProps {
   currentTab: NavTab;
@@ -202,6 +203,9 @@ export const TopBar: React.FC<TopBarProps> = ({
           isOpen={isRealtimeModalOpen}
           onClose={() => setIsRealtimeModalOpen(false)}
         />
+
+        {/* PWA Install Button for Desktop and Mobile */}
+        <PWAInstallButton variant="header" />
 
         {/* Google Sheets Sync Button */}
         {onOpenGoogleSheets && (

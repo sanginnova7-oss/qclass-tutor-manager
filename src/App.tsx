@@ -27,6 +27,7 @@ import { CommandPaletteModal } from './components/modals/CommandPaletteModal';
 import { WorksheetPrintModal } from './components/modals/WorksheetPrintModal';
 import { GoogleSheetsSyncModal } from './components/modals/GoogleSheetsSyncModal';
 import { RealtimeToastContainer } from './components/common/RealtimeToastContainer';
+import { OfflineIndicator } from './components/common/OfflineIndicator';
 
 // Views
 import { DashboardView } from './components/views/DashboardView';
@@ -372,6 +373,9 @@ export default function App() {
 
       {/* Global Realtime Live Sync Notifications */}
       <RealtimeToastContainer />
+
+      {/* Offline Status Toast Indicator */}
+      <OfflineIndicator />
     </div>
   );
 }
