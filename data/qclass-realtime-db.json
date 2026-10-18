@@ -1,0 +1,2680 @@
+{
+  "settings": {
+    "teacherName": "Thầy Nguyễn Văn Sang",
+    "teacherSubject": "Toán học",
+    "teacherPhone": "0386493786",
+    "teacherBankName": "MB Bank (Quân Đội)",
+    "teacherBankAccount": "0386493786",
+    "teacherBankHolder": "NGUYEN VAN SANG",
+    "defaultPackageSize": 10,
+    "defaultTuitionRate": 60000,
+    "classDurationMinutes": 90,
+    "currency": "VND",
+    "deductionRules": {
+      "present": true,
+      "excused": false,
+      "unexcused": true,
+      "makeup": true
+    },
+    "thresholds": {
+      "critical": 0,
+      "urgent": 1,
+      "warning": 2,
+      "caution": 4
+    }
+  },
+  "students": [
+    {
+      "id": "std-1",
+      "fullName": "Nguyễn Văn An",
+      "dateOfBirth": "2012-04-12",
+      "grade": 8,
+      "school": "THCS Giảng Võ",
+      "studentPhone": "0981 123 401",
+      "parentName": "Bác Nguyễn Văn Dũng",
+      "parentPhone": "0912 888 101",
+      "address": "Số 15 ngõ 42 Liễu Giai, Ba Đình, Hà Nội",
+      "enrollmentDate": "2026-09-05",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Học lực khá, chăm chỉ làm bài tập, tính toán cẩn thận.",
+      "createdAt": "2026-09-05T09:00:00Z",
+      "updatedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "id": "std-2",
+      "fullName": "Trần Thị Mai",
+      "dateOfBirth": "2012-08-20",
+      "grade": 8,
+      "school": "THCS Thăng Long",
+      "studentPhone": "0981 123 402",
+      "parentName": "Cô Lê Thị Loan",
+      "parentPhone": "0912 888 102",
+      "address": "Số 8 Quán Thánh, Ba Đình, Hà Nội",
+      "enrollmentDate": "2026-09-05",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Yếu phần hình học đồng dạng, cần củng cố thêm bài tập chứng minh.",
+      "createdAt": "2026-09-05T09:00:00Z",
+      "updatedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "id": "std-3",
+      "fullName": "Lê Hoàng Long",
+      "dateOfBirth": "2012-01-15",
+      "grade": 8,
+      "school": "THCS Cầu Giấy",
+      "studentPhone": "0981 123 403",
+      "parentName": "Anh Lê Quốc Hưng",
+      "parentPhone": "0912 888 103",
+      "address": "P402 Chung cư Dịch Vọng, Cầu Giấy, Hà Nội",
+      "enrollmentDate": "2026-09-06",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Tiếp thu nhanh, tư duy logic rất tốt.",
+      "createdAt": "2026-09-06T09:00:00Z",
+      "updatedAt": "2026-09-06T09:00:00Z"
+    },
+    {
+      "id": "std-4",
+      "fullName": "Đỗ Bảo Ngọc",
+      "dateOfBirth": "2012-11-03",
+      "grade": 8,
+      "school": "THCS Nam Từ Liêm",
+      "studentPhone": "0981 123 404",
+      "parentName": "Chị Đỗ Thu Trang",
+      "parentPhone": "0912 888 104",
+      "address": "Số 32 Mễ Trì Hạ, Nam Từ Liêm, Hà Nội",
+      "enrollmentDate": "2026-09-08",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Còn 0 buổi, cần nhắc phụ huynh nộp học phí chu kỳ mới.",
+      "createdAt": "2026-09-08T09:00:00Z",
+      "updatedAt": "2026-09-08T09:00:00Z"
+    },
+    {
+      "id": "std-5",
+      "fullName": "Phạm Đức Trọng",
+      "dateOfBirth": "2012-05-24",
+      "grade": 8,
+      "school": "THCS Trưng Vương",
+      "studentPhone": "0981 123 405",
+      "parentName": "Bác Phạm Thế Anh",
+      "parentPhone": "0912 888 105",
+      "address": "Số 9 Hàng Vôi, Hoàn Kiếm, Hà Nội",
+      "enrollmentDate": "2026-09-10",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Chính sách giảm giá gia đình hoàn cảnh: 50k/buổi.",
+      "createdAt": "2026-09-10T09:00:00Z",
+      "updatedAt": "2026-09-10T09:00:00Z"
+    },
+    {
+      "id": "std-6",
+      "fullName": "Vũ Minh Khôi",
+      "dateOfBirth": "2012-09-18",
+      "grade": 8,
+      "school": "THCS Nghĩa Tân",
+      "studentPhone": "0981 123 406",
+      "parentName": "Cô Hoàng Bích Thủy",
+      "parentPhone": "0912 888 106",
+      "address": "Số 112 Hoàng Quốc Việt, Cầu Giấy, Hà Nội",
+      "enrollmentDate": "2026-09-12",
+      "defaultTuitionRate": 50000,
+      "status": "active",
+      "notes": "Có tiến bộ rõ rệt trong bài kiểm tra gần đây.",
+      "createdAt": "2026-09-12T09:00:00Z",
+      "updatedAt": "2026-09-12T09:00:00Z"
+    },
+    {
+      "id": "std-7",
+      "fullName": "Nguyễn Đức Minh",
+      "dateOfBirth": "2011-03-10",
+      "grade": 9,
+      "school": "THCS Archimedes Academy",
+      "studentPhone": "0981 123 407",
+      "parentName": "Bác Nguyễn Đức Hải",
+      "parentPhone": "0912 888 107",
+      "address": "Số 45 Trung Kính, Cầu Giấy, Hà Nội",
+      "enrollmentDate": "2026-09-01",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Mục tiêu thi chuyên Toán KHTN. Đã hết 10 buổi trong gói đầu tiên.",
+      "createdAt": "2026-09-01T09:00:00Z",
+      "updatedAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "std-8",
+      "fullName": "Trần Hoàng Nam",
+      "dateOfBirth": "2011-07-22",
+      "grade": 9,
+      "school": "THCS Nguyễn Du",
+      "studentPhone": "0981 123 408",
+      "parentName": "Cô Trần Ngọc Ánh",
+      "parentPhone": "0912 888 108",
+      "address": "Số 19 Hàng Chuối, Hai Bà Trưng, Hà Nội",
+      "enrollmentDate": "2026-09-01",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 1 buổi. Gia đình chuẩn bị đóng gói 10 buổi tiếp theo.",
+      "createdAt": "2026-09-01T09:00:00Z",
+      "updatedAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "std-9",
+      "fullName": "Vũ Phương Linh",
+      "dateOfBirth": "2011-12-05",
+      "grade": 9,
+      "school": "THCS Ngô Sĩ Liên",
+      "studentPhone": "0981 123 409",
+      "parentName": "Anh Vũ Đình Trọng",
+      "parentPhone": "0912 888 109",
+      "address": "Số 27 Hàm Long, Hoàn Kiếm, Hà Nội",
+      "enrollmentDate": "2026-09-02",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 1 buổi học phí. Nắm chắc Bất đẳng thức Cauchy.",
+      "createdAt": "2026-09-02T09:00:00Z",
+      "updatedAt": "2026-09-02T09:00:00Z"
+    },
+    {
+      "id": "std-10",
+      "fullName": "Lê Thị Mai Anh",
+      "dateOfBirth": "2011-09-14",
+      "grade": 9,
+      "school": "THCS Đoàn Thị Điểm",
+      "studentPhone": "0981 123 410",
+      "parentName": "Chị Mai Kim Oanh",
+      "parentPhone": "0912 888 110",
+      "address": "KĐT Mỹ Đình 2, Nam Từ Liêm, Hà Nội",
+      "enrollmentDate": "2026-09-03",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 2 buổi học phí. Chăm chỉ, chữ đẹp.",
+      "createdAt": "2026-09-03T09:00:00Z",
+      "updatedAt": "2026-09-03T09:00:00Z"
+    },
+    {
+      "id": "std-11",
+      "fullName": "Phạm Quốc Tuấn",
+      "dateOfBirth": "2011-02-28",
+      "grade": 9,
+      "school": "THCS Yên Hòa",
+      "studentPhone": "0981 123 411",
+      "parentName": "Bác Phạm Văn Tuấn",
+      "parentPhone": "0912 888 111",
+      "address": "Số 68 Hạ Yên, Cầu Giấy, Hà Nội",
+      "enrollmentDate": "2026-09-04",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 2 buổi. Thỉnh thoảng đi muộn 5-10 phút.",
+      "createdAt": "2026-09-04T09:00:00Z",
+      "updatedAt": "2026-09-04T09:00:00Z"
+    },
+    {
+      "id": "std-12",
+      "fullName": "Hoàng Gia Huy",
+      "dateOfBirth": "2011-06-19",
+      "grade": 9,
+      "school": "THCS Thực Nghiệm",
+      "studentPhone": "0981 123 412",
+      "parentName": "Cô Hoàng Lan Anh",
+      "parentPhone": "0912 888 112",
+      "address": "Số 50 Liễu Giai, Ba Đình, Hà Nội",
+      "enrollmentDate": "2026-09-05",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 3 buổi học phí.",
+      "createdAt": "2026-09-05T09:00:00Z",
+      "updatedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "id": "std-13",
+      "fullName": "Đặng Thu Hà",
+      "dateOfBirth": "2011-10-30",
+      "grade": 9,
+      "school": "THCS Lương Thế Vinh",
+      "studentPhone": "0981 123 413",
+      "parentName": "Bác Đặng Văn Hùng",
+      "parentPhone": "0912 888 113",
+      "address": "Số 10 Tân Triều, Thanh Trì, Hà Nội",
+      "enrollmentDate": "2026-09-10",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Vừa đóng gói mới 10 buổi. Còn 8 buổi.",
+      "createdAt": "2026-09-10T09:00:00Z",
+      "updatedAt": "2026-09-10T09:00:00Z"
+    },
+    {
+      "id": "std-14",
+      "fullName": "Bùi Tuấn Kiệt",
+      "dateOfBirth": "2011-05-15",
+      "grade": 9,
+      "school": "THCS Giảng Võ",
+      "studentPhone": "0981 123 414",
+      "parentName": "Chị Bùi Thị Hạnh",
+      "parentPhone": "0912 888 114",
+      "address": "Ngõ 612 La Thành, Ba Đình, Hà Nội",
+      "enrollmentDate": "2026-09-12",
+      "defaultTuitionRate": 60000,
+      "status": "active",
+      "notes": "Còn 7 buổi. Tích cực phát biểu xây dựng bài.",
+      "createdAt": "2026-09-12T09:00:00Z",
+      "updatedAt": "2026-09-12T09:00:00Z"
+    },
+    {
+      "id": "std-15",
+      "fullName": "Ngô Thanh Tùng",
+      "dateOfBirth": "2010-02-14",
+      "grade": 10,
+      "school": "THPT Chu Văn An",
+      "studentPhone": "0981 123 415",
+      "parentName": "Bác Ngô Văn Toàn",
+      "parentPhone": "0912 888 115",
+      "address": "Số 10 Thụy Khuê, Tây Hồ, Hà Nội",
+      "enrollmentDate": "2026-09-02",
+      "defaultTuitionRate": 70000,
+      "status": "active",
+      "notes": "Học sinh giỏi cấp quận. Còn 1 buổi trong gói học.",
+      "createdAt": "2026-09-02T09:00:00Z",
+      "updatedAt": "2026-09-02T09:00:00Z"
+    },
+    {
+      "id": "std-16",
+      "fullName": "Dương Thảo Vy",
+      "dateOfBirth": "2010-07-09",
+      "grade": 10,
+      "school": "THPT Kim Liên",
+      "studentPhone": "0981 123 416",
+      "parentName": "Cô Dương Thị Tuyết",
+      "parentPhone": "0912 888 116",
+      "address": "Số 8 Đào Duy Anh, Đống Đa, Hà Nội",
+      "enrollmentDate": "2026-09-03",
+      "defaultTuitionRate": 70000,
+      "status": "active",
+      "notes": "Còn 2 buổi. Cần chú ý phần lượng giác.",
+      "createdAt": "2026-09-03T09:00:00Z",
+      "updatedAt": "2026-09-03T09:00:00Z"
+    },
+    {
+      "id": "std-17",
+      "fullName": "Hoàng Nhật Minh",
+      "dateOfBirth": "2010-09-25",
+      "grade": 10,
+      "school": "THPT Yên Hòa",
+      "studentPhone": "0981 123 417",
+      "parentName": "Anh Hoàng Việt Dũng",
+      "parentPhone": "0912 888 117",
+      "address": "Số 15 Trung Hòa, Cầu Giấy, Hà Nội",
+      "enrollmentDate": "2026-09-05",
+      "defaultTuitionRate": 70000,
+      "status": "active",
+      "notes": "Còn 4 buổi. Tư duy hình học không gian tốt.",
+      "createdAt": "2026-09-05T09:00:00Z",
+      "updatedAt": "2026-09-05T09:00:00Z"
+    },
+    {
+      "id": "std-18",
+      "fullName": "Nguyễn Thảo My",
+      "dateOfBirth": "2010-11-18",
+      "grade": 10,
+      "school": "THPT Phan Đình Phùng",
+      "studentPhone": "0981 123 418",
+      "parentName": "Chị Nguyễn Hương Giang",
+      "parentPhone": "0912 888 118",
+      "address": "Số 30 Phan Đình Phùng, Ba Đình, Hà Nội",
+      "enrollmentDate": "2026-09-08",
+      "defaultTuitionRate": 70000,
+      "status": "active",
+      "notes": "Gói học mới 10 buổi, còn 9 buổi.",
+      "createdAt": "2026-09-08T09:00:00Z",
+      "updatedAt": "2026-09-08T09:00:00Z"
+    },
+    {
+      "id": "std-19",
+      "fullName": "Lâm Hải Đăng",
+      "dateOfBirth": "2010-04-01",
+      "grade": 10,
+      "school": "THPT Chuyên Hà Nội - Amsterdam",
+      "studentPhone": "0981 123 419",
+      "parentName": "Bác Lâm Thế Quang",
+      "parentPhone": "0912 888 119",
+      "address": "KĐT Ciputra, Tây Hồ, Hà Nội",
+      "enrollmentDate": "2026-09-10",
+      "defaultTuitionRate": 75000,
+      "status": "active",
+      "notes": "Kèm riêng chuyên sâu, học phí 75k/buổi. Còn 5 buổi.",
+      "createdAt": "2026-09-10T09:00:00Z",
+      "updatedAt": "2026-09-10T09:00:00Z"
+    },
+    {
+      "id": "std-20",
+      "fullName": "Đoàn Quỳnh Chi",
+      "dateOfBirth": "2010-12-29",
+      "grade": 10,
+      "school": "THPT Trần Phú",
+      "studentPhone": "0981 123 420",
+      "parentName": "Cô Đoàn Bích Ngọc",
+      "parentPhone": "0912 888 120",
+      "address": "Số 12 Hai Bà Trưng, Hoàn Kiếm, Hà Nội",
+      "enrollmentDate": "2026-09-12",
+      "defaultTuitionRate": 70000,
+      "status": "active",
+      "notes": "Còn 3 buổi học phí.",
+      "createdAt": "2026-09-12T09:00:00Z",
+      "updatedAt": "2026-09-12T09:00:00Z"
+    },
+    {
+      "id": "std-21",
+      "fullName": "Vương Bảo Lâm",
+      "dateOfBirth": "2010-06-11",
+      "grade": 10,
+      "school": "THPT Việt Đức",
+      "studentPhone": "0981 123 421",
+      "parentName": "Bác Vương Quốc Việt",
+      "parentPhone": "0912 888 121",
+      "address": "Số 47 Lý Thường Kiệt, Hoàn Kiếm, Hà Nội",
+      "enrollmentDate": "2026-09-15",
+      "defaultTuitionRate": 70000,
+      "status": "paused",
+      "notes": "Tạm nghỉ 2 tuần ôn thi học kỳ tại trường.",
+      "createdAt": "2026-09-15T09:00:00Z",
+      "updatedAt": "2026-09-15T09:00:00Z"
+    }
+  ],
+  "classes": [
+    {
+      "id": "class-1",
+      "name": "Toán 8 - Cơ bản & Bồi dưỡng",
+      "subject": "Toán học",
+      "grade": 8,
+      "defaultTuitionRate": 50000,
+      "scheduleDays": [
+        "Thứ 3",
+        "Thứ 5"
+      ],
+      "startTime": "17:30",
+      "endTime": "19:00",
+      "room": "Phòng 201 - Tầng 2",
+      "studentIds": [
+        "std-1",
+        "std-2",
+        "std-3",
+        "std-4",
+        "std-5",
+        "std-6"
+      ],
+      "status": "active",
+      "createdAt": "2026-09-01T08:00:00Z"
+    },
+    {
+      "id": "class-2",
+      "name": "Toán 9 - Luyện thi vào 10 (Nhóm A)",
+      "subject": "Toán học",
+      "grade": 9,
+      "defaultTuitionRate": 60000,
+      "scheduleDays": [
+        "Thứ 4",
+        "Thứ 7"
+      ],
+      "startTime": "18:00",
+      "endTime": "19:45",
+      "room": "Phòng 301 - Tầng 3",
+      "studentIds": [
+        "std-7",
+        "std-8",
+        "std-9",
+        "std-10",
+        "std-11",
+        "std-12",
+        "std-13",
+        "std-14"
+      ],
+      "status": "active",
+      "createdAt": "2026-09-01T08:00:00Z"
+    },
+    {
+      "id": "class-3",
+      "name": "Toán 10 - Chuyên đề Đại số & Hình Oxyz",
+      "subject": "Toán học",
+      "grade": 10,
+      "defaultTuitionRate": 70000,
+      "scheduleDays": [
+        "Thứ 2",
+        "Thứ 6"
+      ],
+      "startTime": "19:15",
+      "endTime": "20:45",
+      "room": "Phòng 202 - Tầng 2",
+      "studentIds": [
+        "std-15",
+        "std-16",
+        "std-17",
+        "std-18",
+        "std-19",
+        "std-20",
+        "std-21"
+      ],
+      "status": "active",
+      "createdAt": "2026-09-01T08:00:00Z"
+    }
+  ],
+  "packages": [
+    {
+      "id": "pkg-1",
+      "studentId": "std-1",
+      "paymentId": "pay-1",
+      "totalLessons": 10,
+      "usedLessons": 6,
+      "remainingLessons": 4,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-05",
+      "status": "active",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pkg-2",
+      "studentId": "std-2",
+      "paymentId": "pay-2",
+      "totalLessons": 10,
+      "usedLessons": 7,
+      "remainingLessons": 3,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-05",
+      "status": "active",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pkg-3",
+      "studentId": "std-3",
+      "paymentId": "pay-3",
+      "totalLessons": 10,
+      "usedLessons": 5,
+      "remainingLessons": 5,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-06",
+      "status": "active",
+      "createdAt": "2026-09-06T09:30:00Z"
+    },
+    {
+      "id": "pkg-4",
+      "studentId": "std-4",
+      "paymentId": "pay-4",
+      "totalLessons": 10,
+      "usedLessons": 10,
+      "remainingLessons": 0,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-08",
+      "status": "completed",
+      "createdAt": "2026-09-08T09:30:00Z"
+    },
+    {
+      "id": "pkg-5",
+      "studentId": "std-5",
+      "paymentId": "pay-5",
+      "totalLessons": 10,
+      "usedLessons": 6,
+      "remainingLessons": 4,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-10",
+      "status": "active",
+      "createdAt": "2026-09-10T09:30:00Z"
+    },
+    {
+      "id": "pkg-6",
+      "studentId": "std-6",
+      "paymentId": "pay-6",
+      "totalLessons": 10,
+      "usedLessons": 4,
+      "remainingLessons": 6,
+      "pricePerLesson": 50000,
+      "startDate": "2026-09-12",
+      "status": "active",
+      "createdAt": "2026-09-12T09:30:00Z"
+    },
+    {
+      "id": "pkg-7",
+      "studentId": "std-7",
+      "paymentId": "pay-7",
+      "totalLessons": 10,
+      "usedLessons": 10,
+      "remainingLessons": 0,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-01",
+      "status": "completed",
+      "createdAt": "2026-09-01T09:30:00Z"
+    },
+    {
+      "id": "pkg-8",
+      "studentId": "std-8",
+      "paymentId": "pay-8",
+      "totalLessons": 10,
+      "usedLessons": 9,
+      "remainingLessons": 1,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-01",
+      "status": "active",
+      "createdAt": "2026-09-01T09:30:00Z"
+    },
+    {
+      "id": "pkg-9",
+      "studentId": "std-9",
+      "paymentId": "pay-9",
+      "totalLessons": 10,
+      "usedLessons": 9,
+      "remainingLessons": 1,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-02",
+      "status": "active",
+      "createdAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "pkg-10",
+      "studentId": "std-10",
+      "paymentId": "pay-10",
+      "totalLessons": 10,
+      "usedLessons": 8,
+      "remainingLessons": 2,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-03",
+      "status": "active",
+      "createdAt": "2026-09-03T09:30:00Z"
+    },
+    {
+      "id": "pkg-11",
+      "studentId": "std-11",
+      "paymentId": "pay-11",
+      "totalLessons": 10,
+      "usedLessons": 8,
+      "remainingLessons": 2,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-04",
+      "status": "active",
+      "createdAt": "2026-09-04T09:30:00Z"
+    },
+    {
+      "id": "pkg-12",
+      "studentId": "std-12",
+      "paymentId": "pay-12",
+      "totalLessons": 10,
+      "usedLessons": 7,
+      "remainingLessons": 3,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-05",
+      "status": "active",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pkg-13",
+      "studentId": "std-13",
+      "paymentId": "pay-13",
+      "totalLessons": 10,
+      "usedLessons": 2,
+      "remainingLessons": 8,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-25",
+      "status": "active",
+      "createdAt": "2026-09-25T09:30:00Z"
+    },
+    {
+      "id": "pkg-14",
+      "studentId": "std-14",
+      "paymentId": "pay-14",
+      "totalLessons": 10,
+      "usedLessons": 3,
+      "remainingLessons": 7,
+      "pricePerLesson": 60000,
+      "startDate": "2026-09-20",
+      "status": "active",
+      "createdAt": "2026-09-20T09:30:00Z"
+    },
+    {
+      "id": "pkg-15",
+      "studentId": "std-15",
+      "paymentId": "pay-15",
+      "totalLessons": 10,
+      "usedLessons": 9,
+      "remainingLessons": 1,
+      "pricePerLesson": 70000,
+      "startDate": "2026-09-02",
+      "status": "active",
+      "createdAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "pkg-16",
+      "studentId": "std-16",
+      "paymentId": "pay-16",
+      "totalLessons": 10,
+      "usedLessons": 8,
+      "remainingLessons": 2,
+      "pricePerLesson": 70000,
+      "startDate": "2026-09-03",
+      "status": "active",
+      "createdAt": "2026-09-03T09:30:00Z"
+    },
+    {
+      "id": "pkg-17",
+      "studentId": "std-17",
+      "paymentId": "pay-17",
+      "totalLessons": 10,
+      "usedLessons": 6,
+      "remainingLessons": 4,
+      "pricePerLesson": 70000,
+      "startDate": "2026-09-05",
+      "status": "active",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pkg-18",
+      "studentId": "std-18",
+      "paymentId": "pay-18",
+      "totalLessons": 10,
+      "usedLessons": 1,
+      "remainingLessons": 9,
+      "pricePerLesson": 70000,
+      "startDate": "2026-10-01",
+      "status": "active",
+      "createdAt": "2026-10-01T09:30:00Z"
+    },
+    {
+      "id": "pkg-19",
+      "studentId": "std-19",
+      "paymentId": "pay-19",
+      "totalLessons": 10,
+      "usedLessons": 5,
+      "remainingLessons": 5,
+      "pricePerLesson": 75000,
+      "startDate": "2026-09-10",
+      "status": "active",
+      "createdAt": "2026-09-10T09:30:00Z"
+    },
+    {
+      "id": "pkg-20",
+      "studentId": "std-20",
+      "paymentId": "pay-20",
+      "totalLessons": 10,
+      "usedLessons": 7,
+      "remainingLessons": 3,
+      "pricePerLesson": 70000,
+      "startDate": "2026-09-12",
+      "status": "active",
+      "createdAt": "2026-09-12T09:30:00Z"
+    },
+    {
+      "id": "pkg-21",
+      "studentId": "std-21",
+      "paymentId": "pay-21",
+      "totalLessons": 10,
+      "usedLessons": 4,
+      "remainingLessons": 6,
+      "pricePerLesson": 70000,
+      "startDate": "2026-09-15",
+      "status": "active",
+      "createdAt": "2026-09-15T09:30:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay-1",
+      "studentId": "std-1",
+      "packageId": "pkg-1",
+      "amount": 500000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 50000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-05",
+      "receiptNumber": "HP-20260905-01",
+      "note": "Chuyển khoản Vietcombank - Bác Dũng đóng gói 10 buổi",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pay-2",
+      "studentId": "std-2",
+      "packageId": "pkg-2",
+      "amount": 500000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 50000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-05",
+      "receiptNumber": "HP-20260905-02",
+      "note": "Chuyển khoản MB Bank",
+      "createdAt": "2026-09-05T09:30:00Z"
+    },
+    {
+      "id": "pay-3",
+      "studentId": "std-3",
+      "packageId": "pkg-3",
+      "amount": 500000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 50000,
+      "paymentMethod": "cash",
+      "paymentDate": "2026-09-06",
+      "receiptNumber": "HP-20260906-01",
+      "note": "Học sinh nộp tiền mặt đầu buổi",
+      "createdAt": "2026-09-06T09:30:00Z"
+    },
+    {
+      "id": "pay-4",
+      "studentId": "std-4",
+      "packageId": "pkg-4",
+      "amount": 500000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 50000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-08",
+      "receiptNumber": "HP-20260908-01",
+      "note": "Gói 10 buổi đầu tiên (đã học hết)",
+      "createdAt": "2026-09-08T09:30:00Z"
+    },
+    {
+      "id": "pay-7",
+      "studentId": "std-7",
+      "packageId": "pkg-7",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-01",
+      "receiptNumber": "HP-20260901-01",
+      "note": "Bố Minh ck gói 10 buổi luyện thi",
+      "createdAt": "2026-09-01T09:30:00Z"
+    },
+    {
+      "id": "pay-8",
+      "studentId": "std-8",
+      "packageId": "pkg-8",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-01",
+      "receiptNumber": "HP-20260901-02",
+      "note": "Mẹ Nam ck 600.000 đ",
+      "createdAt": "2026-09-01T09:30:00Z"
+    },
+    {
+      "id": "pay-9",
+      "studentId": "std-9",
+      "packageId": "pkg-9",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-02",
+      "receiptNumber": "HP-20260902-01",
+      "note": "Gói 10 buổi Toán 9",
+      "createdAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "pay-10",
+      "studentId": "std-10",
+      "packageId": "pkg-10",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "cash",
+      "paymentDate": "2026-09-03",
+      "receiptNumber": "HP-20260903-01",
+      "note": "Tiền mặt",
+      "createdAt": "2026-09-03T09:30:00Z"
+    },
+    {
+      "id": "pay-11",
+      "studentId": "std-11",
+      "packageId": "pkg-11",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-04",
+      "receiptNumber": "HP-20260904-01",
+      "note": "Techcombank",
+      "createdAt": "2026-09-04T09:30:00Z"
+    },
+    {
+      "id": "pay-13",
+      "studentId": "std-13",
+      "packageId": "pkg-13",
+      "amount": 600000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 60000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-25",
+      "receiptNumber": "HP-20260925-01",
+      "note": "Đóng chu kỳ tiếp theo 10 buổi",
+      "createdAt": "2026-09-25T09:30:00Z"
+    },
+    {
+      "id": "pay-15",
+      "studentId": "std-15",
+      "packageId": "pkg-15",
+      "amount": 700000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 70000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-02",
+      "receiptNumber": "HP-20260902-02",
+      "note": "Gói Toán 10 Chu Văn An",
+      "createdAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "pay-18",
+      "studentId": "std-18",
+      "packageId": "pkg-18",
+      "amount": 700000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 70000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-10-01",
+      "receiptNumber": "HP-20261001-01",
+      "note": "Mẹ Hương Giang ck gói tháng 10",
+      "createdAt": "2026-10-01T09:30:00Z"
+    },
+    {
+      "id": "pay-19",
+      "studentId": "std-19",
+      "packageId": "pkg-19",
+      "amount": 750000,
+      "lessonQuantity": 10,
+      "pricePerLesson": 75000,
+      "paymentMethod": "transfer",
+      "paymentDate": "2026-09-10",
+      "receiptNumber": "HP-20260910-01",
+      "note": "Học phí chuyên Toán Ams 75k x 10",
+      "createdAt": "2026-09-10T09:30:00Z"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "att-1",
+      "studentId": "std-7",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "note": "Làm tốt câu cực trị điểm rơi",
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-2",
+      "studentId": "std-8",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "note": "Đến đúng giờ",
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-3",
+      "studentId": "std-9",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-4",
+      "studentId": "std-10",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-5",
+      "studentId": "std-11",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "excused",
+      "lessonDeducted": false,
+      "note": "Gia đình báo xin nghỉ ốm sốt nhẹ",
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-6",
+      "studentId": "std-12",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-7",
+      "studentId": "std-13",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "att-8",
+      "studentId": "std-14",
+      "classId": "class-2",
+      "sessionId": "sess-1",
+      "sessionTitle": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "date": "2026-10-10",
+      "status": "present",
+      "lessonDeducted": true,
+      "createdAt": "2026-10-10T19:45:00Z",
+      "updatedAt": "2026-10-10T19:45:00Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sess-1",
+      "classId": "class-2",
+      "date": "2026-10-10",
+      "title": "Buổi 11: Bất đẳng thức Bunhiacopxki & Cực trị đại số",
+      "attendanceCount": {
+        "present": 7,
+        "excused": 1,
+        "unexcused": 0,
+        "makeup": 0
+      },
+      "totalStudents": 8,
+      "createdAt": "2026-10-10T17:45:00Z"
+    },
+    {
+      "id": "sess-2",
+      "classId": "class-2",
+      "date": "2026-10-07",
+      "title": "Buổi 10: Rút gọn biểu thức chứa căn & bài toán phụ",
+      "attendanceCount": {
+        "present": 8,
+        "excused": 0,
+        "unexcused": 0,
+        "makeup": 0
+      },
+      "totalStudents": 8,
+      "createdAt": "2026-10-07T17:45:00Z"
+    },
+    {
+      "id": "sess-3",
+      "classId": "class-1",
+      "date": "2026-10-08",
+      "title": "Buổi 9: Các trường hợp đồng dạng của tam giác",
+      "attendanceCount": {
+        "present": 5,
+        "excused": 1,
+        "unexcused": 0,
+        "makeup": 0
+      },
+      "totalStudents": 6,
+      "createdAt": "2026-10-08T17:20:00Z"
+    },
+    {
+      "id": "sess-4",
+      "classId": "class-3",
+      "date": "2026-10-09",
+      "title": "Buổi 10: Phương trình lượng giác cơ bản & biến đổi góc",
+      "attendanceCount": {
+        "present": 6,
+        "excused": 0,
+        "unexcused": 1,
+        "makeup": 0
+      },
+      "totalStudents": 7,
+      "createdAt": "2026-10-09T19:00:00Z"
+    }
+  ],
+  "tests": [
+    {
+      "id": "test-1",
+      "classId": "class-2",
+      "title": "Khảo sát 45 phút - Đại số & Bất đẳng thức",
+      "date": "2026-10-07",
+      "maxScore": 10,
+      "notes": "Đề gồm 4 câu tự luận, thang điểm 10",
+      "createdAt": "2026-10-07T10:00:00Z"
+    },
+    {
+      "id": "test-2",
+      "classId": "class-1",
+      "title": "Kiểm tra 15 phút - Định lý Talet trong tam giác",
+      "date": "2026-10-01",
+      "maxScore": 10,
+      "notes": "2 câu tự luận cơ bản",
+      "createdAt": "2026-10-01T10:00:00Z"
+    },
+    {
+      "id": "test-3",
+      "classId": "class-3",
+      "title": "Khảo sát 1 tiết - Hàm số lượng giác",
+      "date": "2026-10-02",
+      "maxScore": 10,
+      "notes": "Đề thi chuẩn cấu trúc THPT Quốc gia",
+      "createdAt": "2026-10-02T10:00:00Z"
+    }
+  ],
+  "scores": [
+    {
+      "id": "sc-1",
+      "testId": "test-1",
+      "studentId": "std-7",
+      "score": 9.5,
+      "notes": "Xuất sắc",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-2",
+      "testId": "test-1",
+      "studentId": "std-8",
+      "score": 8,
+      "notes": "Làm tốt, sai sót nhỏ câu cuối",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-3",
+      "testId": "test-1",
+      "studentId": "std-9",
+      "score": 8.5,
+      "notes": "Tiến bộ",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-4",
+      "testId": "test-1",
+      "studentId": "std-10",
+      "score": 7.5,
+      "notes": "Cần rèn thêm kỹ năng biến đổi",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-5",
+      "testId": "test-1",
+      "studentId": "std-11",
+      "score": 6.5,
+      "notes": "Chưa học kỹ lý thuyết Bunhiacopxki",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-6",
+      "testId": "test-1",
+      "studentId": "std-12",
+      "score": 8,
+      "notes": "",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-7",
+      "testId": "test-1",
+      "studentId": "std-13",
+      "score": 9,
+      "notes": "Rất cẩn thận",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-8",
+      "testId": "test-1",
+      "studentId": "std-14",
+      "score": 8.5,
+      "notes": "",
+      "createdAt": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "sc-9",
+      "testId": "test-2",
+      "studentId": "std-1",
+      "score": 9,
+      "notes": "",
+      "createdAt": "2026-10-01T20:00:00Z"
+    },
+    {
+      "id": "sc-10",
+      "testId": "test-2",
+      "studentId": "std-2",
+      "score": 7,
+      "notes": "Cần vẽ hình chính xác hơn",
+      "createdAt": "2026-10-01T20:00:00Z"
+    },
+    {
+      "id": "sc-11",
+      "testId": "test-2",
+      "studentId": "std-3",
+      "score": 9.5,
+      "notes": "Bài giải rất thông minh",
+      "createdAt": "2026-10-01T20:00:00Z"
+    },
+    {
+      "id": "sc-12",
+      "testId": "test-2",
+      "studentId": "std-4",
+      "score": 8,
+      "notes": "",
+      "createdAt": "2026-10-01T20:00:00Z"
+    }
+  ],
+  "homework": [
+    {
+      "id": "hw-1",
+      "classId": "class-2",
+      "title": "Phiếu 12: 10 bài toán cực trị hình học và đại số",
+      "assignedDate": "2026-10-10",
+      "dueDate": "2026-10-14",
+      "description": "Làm đầy đủ vào vở bài tập, vẽ hình bằng compa và thước kẻ.",
+      "createdAt": "2026-10-10T19:50:00Z"
+    },
+    {
+      "id": "hw-2",
+      "classId": "class-1",
+      "title": "Phiếu 9: Bài tập chứng minh tam giác đồng dạng",
+      "assignedDate": "2026-10-08",
+      "dueDate": "2026-10-13",
+      "description": "Bài 1 đến bài 6 SGK và phiếu đính kèm",
+      "createdAt": "2026-10-08T19:00:00Z"
+    }
+  ],
+  "homeworkResults": [
+    {
+      "id": "hwr-1",
+      "homeworkId": "hw-1",
+      "studentId": "std-7",
+      "status": "completed",
+      "score": 10,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-2",
+      "homeworkId": "hw-1",
+      "studentId": "std-8",
+      "status": "completed",
+      "score": 9,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-3",
+      "homeworkId": "hw-1",
+      "studentId": "std-9",
+      "status": "completed",
+      "score": 9,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-4",
+      "homeworkId": "hw-1",
+      "studentId": "std-10",
+      "status": "partial",
+      "score": 7,
+      "notes": "Chưa làm câu 9, 10",
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-5",
+      "homeworkId": "hw-1",
+      "studentId": "std-11",
+      "status": "missing",
+      "notes": "Quên vở bài tập ở trường",
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-6",
+      "homeworkId": "hw-1",
+      "studentId": "std-12",
+      "status": "completed",
+      "score": 8.5,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-7",
+      "homeworkId": "hw-1",
+      "studentId": "std-13",
+      "status": "completed",
+      "score": 10,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    },
+    {
+      "id": "hwr-8",
+      "homeworkId": "hw-1",
+      "studentId": "std-14",
+      "status": "completed",
+      "score": 9,
+      "updatedAt": "2026-10-12T10:00:00Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-1",
+      "studentId": "std-7",
+      "content": "Em Minh có nguyện vọng thi Chuyên Sư Phạm hoặc KHTN, phần Hình học không gian tiếp thu tốt.",
+      "author": "Thầy Quang",
+      "createdAt": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": "note-2",
+      "studentId": "std-8",
+      "content": "Phụ huynh gọi điện nhờ thầy chú ý rèn thêm tính cẩn thận khi giải phương trình vô tỉ.",
+      "author": "Thầy Quang",
+      "createdAt": "2026-09-28T14:30:00Z"
+    },
+    {
+      "id": "note-3",
+      "studentId": "std-4",
+      "content": "Đã hoàn thành 10 buổi của gói cũ, cần gửi tin nhắn học phí cho mẹ em Ngọc.",
+      "author": "Thầy Quang",
+      "createdAt": "2026-10-10T11:00:00Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act-1",
+      "type": "attendance",
+      "title": "Điểm danh lớp Toán 9 (Nhóm A)",
+      "description": "Đã điểm danh Buổi 11 (7 có mặt, 1 có phép). Đã tự động trừ 1 buổi học phí.",
+      "timestamp": "2026-10-10T19:46:00Z",
+      "classId": "class-2"
+    },
+    {
+      "id": "act-2",
+      "type": "payment",
+      "title": "Thu học phí: Đặng Thu Hà",
+      "description": "Đã nhận 600.000 đ (gói 10 buổi - chuyển khoản MB Bank).",
+      "timestamp": "2026-09-25T09:35:00Z",
+      "studentId": "std-13"
+    },
+    {
+      "id": "act-3",
+      "type": "score",
+      "title": "Nhập điểm khảo sát Đại số",
+      "description": "Đã nhập điểm bài khảo sát 45 phút cho lớp Toán 9 (Điểm cao nhất: 9.5 - Nguyễn Đức Minh).",
+      "timestamp": "2026-10-07T20:05:00Z",
+      "classId": "class-2"
+    },
+    {
+      "id": "act-4",
+      "type": "student",
+      "title": "Thêm học sinh mới: Vương Bảo Lâm",
+      "description": "Học sinh lớp 10 THPT Việt Đức tham gia lớp Toán 10 nâng cao.",
+      "timestamp": "2026-09-15T09:05:00Z",
+      "studentId": "std-21",
+      "classId": "class-3"
+    },
+    {
+      "id": "act-5",
+      "type": "package",
+      "title": "Gói học phí hoàn thành: Đỗ Bảo Ngọc",
+      "description": "Đã sử dụng hết 10/10 buổi học. Còn 0 buổi.",
+      "timestamp": "2026-10-08T19:10:00Z",
+      "studentId": "std-4"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-admin",
+      "name": "Thầy Nguyễn Văn Sang",
+      "role": "admin",
+      "phone": "0386493786",
+      "avatar": "NS"
+    },
+    {
+      "id": "user-assistant",
+      "name": "Cô Mai Lan (Trợ giảng)",
+      "role": "assistant",
+      "phone": "0988 777 666",
+      "avatar": "ML"
+    },
+    {
+      "id": "user-std-1",
+      "name": "Nguyễn Văn An",
+      "role": "student",
+      "studentId": "std-1",
+      "phone": "0981 123 401",
+      "avatar": "VA"
+    },
+    {
+      "id": "user-std-7",
+      "name": "Nguyễn Đức Minh",
+      "role": "student",
+      "studentId": "std-7",
+      "phone": "0981 123 407",
+      "avatar": "DM"
+    },
+    {
+      "id": "user-parent-1",
+      "name": "Bác Nguyễn Văn Dũng (PH Nguyễn Văn An)",
+      "role": "parent",
+      "phone": "0912 888 101",
+      "studentIds": [
+        "std-1"
+      ],
+      "avatar": "VD"
+    },
+    {
+      "id": "user-parent-7",
+      "name": "Bác Nguyễn Đức Hải (PH Nguyễn Đức Minh)",
+      "role": "parent",
+      "phone": "0912 888 107",
+      "studentIds": [
+        "std-7"
+      ],
+      "avatar": "DH"
+    }
+  ],
+  "questions": [
+    {
+      "id": "qb-1",
+      "subject": "Toán học",
+      "grade": 9,
+      "topic": "Bất đẳng thức & Cực trị",
+      "skill": "Bất đẳng thức Cauchy",
+      "difficulty": "comprehension",
+      "questionType": "single_choice",
+      "questionText": "Cho hai số thực dương x, y thỏa mãn x + y = 2. Giá trị nhỏ nhất của biểu thức P = 1/x + 1/y là:",
+      "options": [
+        {
+          "id": "opt-1-1",
+          "text": "1",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-1-2",
+          "text": "2",
+          "isCorrect": true
+        },
+        {
+          "id": "opt-1-3",
+          "text": "4",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-1-4",
+          "text": "1/2",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Áp dụng BĐT Cauchy: P = 1/x + 1/y >= 4/(x + y) = 4/2 = 2. Dấu bằng xảy ra khi x = y = 1.",
+      "tags": [
+        "Bất đẳng thức",
+        "Cauchy",
+        "Cực trị"
+      ],
+      "createdAt": "2026-09-10T10:00:00Z"
+    },
+    {
+      "id": "qb-2",
+      "subject": "Toán học",
+      "grade": 9,
+      "topic": "Căn thức bậc hai",
+      "skill": "Rút gọn biểu thức",
+      "difficulty": "recognition",
+      "questionType": "single_choice",
+      "questionText": "Điều kiện xác định của biểu thức √(3x - 6) là:",
+      "options": [
+        {
+          "id": "opt-2-1",
+          "text": "x > 2",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-2-2",
+          "text": "x >= 2",
+          "isCorrect": true
+        },
+        {
+          "id": "opt-2-3",
+          "text": "x <= 2",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-2-4",
+          "text": "x != 2",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Biểu thức trong căn phải không âm: 3x - 6 >= 0 <=> 3x >= 6 <=> x >= 2.",
+      "tags": [
+        "Căn thức",
+        "ĐKXĐ"
+      ],
+      "createdAt": "2026-09-12T10:00:00Z"
+    },
+    {
+      "id": "qb-3",
+      "subject": "Toán học",
+      "grade": 9,
+      "topic": "Hệ phương trình bậc nhất hai ẩn",
+      "skill": "Giải hệ phương trình",
+      "difficulty": "application",
+      "questionType": "numeric",
+      "questionText": "Nghiệm (x; y) của hệ phương trình: { 2x + y = 7 ; x - y = 2 }. Giá trị của tích x.y là bao nhiêu?",
+      "correctNumericAnswer": 3,
+      "explanation": "Cộng 2 vế ta có 3x = 9 => x = 3. Thay vào pt2 => y = x - 2 = 3 - 2 = 1. Vậy tích x.y = 3 * 1 = 3.",
+      "tags": [
+        "Hệ phương trình",
+        "Đại số"
+      ],
+      "createdAt": "2026-09-15T10:00:00Z"
+    },
+    {
+      "id": "qb-4",
+      "subject": "Toán học",
+      "grade": 8,
+      "topic": "Định lý Talet & Tam giác đồng dạng",
+      "skill": "Tính độ dài đoạn thẳng",
+      "difficulty": "comprehension",
+      "questionType": "single_choice",
+      "questionText": "Cho tam giác ABC, điểm D trên AB và E trên AC sao cho DE // BC. Biết AD = 3cm, DB = 6cm, AE = 4cm. Độ dài đoạn EC là:",
+      "options": [
+        {
+          "id": "opt-4-1",
+          "text": "6 cm",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-4-2",
+          "text": "8 cm",
+          "isCorrect": true
+        },
+        {
+          "id": "opt-4-3",
+          "text": "10 cm",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-4-4",
+          "text": "12 cm",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Theo định lý Talet: AD/DB = AE/EC <=> 3/6 = 4/EC <=> 1/2 = 4/EC <=> EC = 8 cm.",
+      "tags": [
+        "Hình học",
+        "Talet"
+      ],
+      "createdAt": "2026-09-18T10:00:00Z"
+    },
+    {
+      "id": "qb-5",
+      "subject": "Toán học",
+      "grade": 10,
+      "topic": "Véctơ & Hệ tọa độ",
+      "skill": "Tích vô hướng hai véctơ",
+      "difficulty": "comprehension",
+      "questionType": "single_choice",
+      "questionText": "Trong mặt phẳng Oxy, cho u = (2; -3) và v = (4; 1). Tích vô hướng u.v bằng:",
+      "options": [
+        {
+          "id": "opt-5-1",
+          "text": "5",
+          "isCorrect": true
+        },
+        {
+          "id": "opt-5-2",
+          "text": "11",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-5-3",
+          "text": "-5",
+          "isCorrect": false
+        },
+        {
+          "id": "opt-5-4",
+          "text": "8",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "u.v = 2 * 4 + (-3) * 1 = 8 - 3 = 5.",
+      "tags": [
+        "Véctơ",
+        "Tích vô hướng",
+        "Hình 10"
+      ],
+      "createdAt": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": "qb-6",
+      "subject": "Toán học",
+      "grade": 10,
+      "topic": "Bất phương trình bậc hai",
+      "skill": "Dấu của tam thức bậc hai",
+      "difficulty": "application",
+      "questionType": "true_false",
+      "questionText": "Tam thức bậc hai f(x) = x^2 - 4x + 5 luôn nhận giá trị dương với mọi số thực x. Đúng hay sai?",
+      "options": [
+        {
+          "id": "opt-6-t",
+          "text": "Đúng",
+          "isCorrect": true
+        },
+        {
+          "id": "opt-6-f",
+          "text": "Sai",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Ta có a = 1 > 0 và delta' = (-2)^2 - 1 * 5 = 4 - 5 = -1 < 0. Do đó f(x) > 0 với mọi x thuộc R. Khẳng định ĐÚNG.",
+      "tags": [
+        "Tam thức bậc hai",
+        "Đại số 10"
+      ],
+      "createdAt": "2026-09-22T10:00:00Z"
+    }
+  ],
+  "onlineTests": [
+    {
+      "id": "ontest-1",
+      "classId": "class-2",
+      "title": "Khảo sát trực tuyến 15p - Bất đẳng thức & Hệ thức lượng",
+      "description": "Bài kiểm tra nhanh củng cố kỹ năng chọn điểm rơi Cauchy và kỹ năng giải phương trình vô tỉ.",
+      "durationMinutes": 15,
+      "maxScore": 10,
+      "questions": [
+        {
+          "questionId": "qb-1",
+          "points": 4
+        },
+        {
+          "questionId": "qb-2",
+          "points": 3
+        },
+        {
+          "questionId": "qb-3",
+          "points": 3
+        }
+      ],
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-25",
+      "shuffleQuestions": true,
+      "showScoreImmediately": true,
+      "allowReview": true,
+      "attemptsAllowed": 2,
+      "status": "published",
+      "createdAt": "2026-10-01T08:00:00Z"
+    },
+    {
+      "id": "ontest-2",
+      "classId": "class-1",
+      "title": "Kiểm tra trắc nghiệm 15p - Định lý Talet & Tam giác đồng dạng",
+      "description": "Kiểm tra mức độ nắm vững hệ quả định lý Talet và tỉ số diện tích.",
+      "durationMinutes": 15,
+      "maxScore": 10,
+      "questions": [
+        {
+          "questionId": "qb-4",
+          "points": 10
+        }
+      ],
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-28",
+      "shuffleQuestions": false,
+      "showScoreImmediately": true,
+      "allowReview": true,
+      "attemptsAllowed": 1,
+      "status": "published",
+      "createdAt": "2026-10-05T08:00:00Z"
+    },
+    {
+      "id": "ontest-3",
+      "classId": "class-3",
+      "title": "Khảo sát 20p - Véctơ & Tam thức bậc hai trong mặt phẳng",
+      "description": "Chuyên đề ôn tập đầu năm học Toán 10 Nâng cao.",
+      "durationMinutes": 20,
+      "maxScore": 10,
+      "questions": [
+        {
+          "questionId": "qb-5",
+          "points": 5
+        },
+        {
+          "questionId": "qb-6",
+          "points": 5
+        }
+      ],
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-30",
+      "shuffleQuestions": true,
+      "showScoreImmediately": true,
+      "allowReview": true,
+      "attemptsAllowed": 2,
+      "status": "published",
+      "createdAt": "2026-10-08T08:00:00Z"
+    }
+  ],
+  "testAttempts": [
+    {
+      "id": "attm-1",
+      "testId": "ontest-1",
+      "studentId": "std-7",
+      "startTime": "2026-10-07T19:00:00Z",
+      "submitTime": "2026-10-07T19:12:30Z",
+      "answers": {
+        "qb-1": "opt-1-2",
+        "qb-2": "opt-2-2",
+        "qb-3": 3
+      },
+      "score": 10,
+      "maxScore": 10,
+      "status": "graded",
+      "feedback": "Làm bài xuất sắc, nắm chắc cả lý thuyết và tính toán."
+    },
+    {
+      "id": "attm-2",
+      "testId": "ontest-1",
+      "studentId": "std-8",
+      "startTime": "2026-10-07T19:05:00Z",
+      "submitTime": "2026-10-07T19:18:00Z",
+      "answers": {
+        "qb-1": "opt-1-2",
+        "qb-2": "opt-2-2",
+        "qb-3": 4
+      },
+      "score": 7,
+      "maxScore": 10,
+      "status": "graded",
+      "feedback": "Câu 3 tính toán tích x.y bị nhầm dấu."
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-1",
+      "studentName": "Bùi Phương Linh",
+      "grade": 9,
+      "school": "THCS Marie Curie",
+      "parentName": "Bác Bùi Tuấn",
+      "parentPhone": "0915 222 331",
+      "source": "Facebook",
+      "interestedClassId": "class-2",
+      "learningGoal": "Mục tiêu đỗ Chuyên Sư Phạm hoặc Chuyên KHTN",
+      "currentLevel": "Học lực Khá (7.5 môn Toán), cần luyện đề nâng cao",
+      "stage": "trial_registered",
+      "notes": "Đã hẹn học thử buổi tối Thứ 4 tuần này lúc 18h.",
+      "followUpDate": "2026-10-15",
+      "createdAt": "2026-10-05T09:00:00Z",
+      "updatedAt": "2026-10-10T14:00:00Z"
+    },
+    {
+      "id": "lead-2",
+      "studentName": "Hoàng Minh Trí",
+      "grade": 10,
+      "school": "THPT Thăng Long",
+      "parentName": "Chị Hoàng Thúy",
+      "parentPhone": "0915 222 332",
+      "source": "Zalo",
+      "interestedClassId": "class-3",
+      "learningGoal": "Củng cố kiến thức hình học không gian và phương trình lượng giác",
+      "currentLevel": "Trung bình khá (6.8), hơi hổng kiến thức góc và khoảng cách",
+      "stage": "consulted",
+      "notes": "Đã tư vấn lộ trình 10 buổi lấy lại gốc hình học không gian.",
+      "followUpDate": "2026-10-16",
+      "createdAt": "2026-10-08T11:00:00Z",
+      "updatedAt": "2026-10-09T16:00:00Z"
+    },
+    {
+      "id": "lead-3",
+      "studentName": "Lê Bảo Nam",
+      "grade": 8,
+      "school": "THCS Nam Từ Liêm",
+      "parentName": "Anh Lê Quốc Nam",
+      "parentPhone": "0915 222 333",
+      "source": "Referral",
+      "referredBy": "std-3",
+      "interestedClassId": "class-1",
+      "learningGoal": "Bồi dưỡng học sinh giỏi Toán cấp trường",
+      "currentLevel": "Giỏi (8.8)",
+      "stage": "trial_completed",
+      "notes": "Đã học thử buổi 9, học sinh rất thích cách giảng bài của thầy.",
+      "followUpDate": "2026-10-14",
+      "createdAt": "2026-10-02T10:00:00Z",
+      "updatedAt": "2026-10-12T19:00:00Z"
+    },
+    {
+      "id": "lead-4",
+      "studentName": "Trần Gia Bách",
+      "grade": 9,
+      "school": "THCS Giảng Võ",
+      "parentName": "Bác Trần Bách",
+      "parentPhone": "0915 222 334",
+      "source": "Website",
+      "interestedClassId": "class-2",
+      "learningGoal": "Luyện đề thi vào lớp 10 THPT công lập",
+      "currentLevel": "Khá (7.0)",
+      "stage": "new",
+      "notes": "Đăng ký qua form website tuyển sinh trực tuyến.",
+      "createdAt": "2026-10-13T15:30:00Z",
+      "updatedAt": "2026-10-13T15:30:00Z"
+    },
+    {
+      "id": "lead-5",
+      "studentName": "Vũ Khánh Huyền",
+      "grade": 10,
+      "school": "THPT Yên Hòa",
+      "parentName": "Cô Vũ Minh Hằng",
+      "parentPhone": "0915 222 335",
+      "source": "Existing Parent",
+      "referredBy": "std-9",
+      "interestedClassId": "class-3",
+      "learningGoal": "Ôn thi đánh giá năng lực ĐHQG và ĐGNL Sư Phạm",
+      "currentLevel": "Học lực Giỏi",
+      "stage": "considering",
+      "notes": "Đang xếp lịch học thêm môn Tiếng Anh để tránh trùng lịch.",
+      "createdAt": "2026-10-06T14:00:00Z",
+      "updatedAt": "2026-10-11T10:00:00Z"
+    }
+  ],
+  "trials": [
+    {
+      "id": "trial-1",
+      "leadId": "lead-1",
+      "classId": "class-2",
+      "trialDate": "2026-10-15",
+      "trialTime": "18:00 - 19:45",
+      "status": "scheduled",
+      "createdAt": "2026-10-10T14:10:00Z"
+    },
+    {
+      "id": "trial-2",
+      "leadId": "lead-3",
+      "classId": "class-1",
+      "trialDate": "2026-10-08",
+      "trialTime": "17:30 - 19:00",
+      "status": "attended",
+      "teacherFeedback": "Em Nam tư duy hình học cực kỳ sáng tạo, phát biểu 3 lần trong buổi học thử.",
+      "studentFeedback": "Thầy giảng chi tiết và dễ hiểu hơn trên lớp.",
+      "conversionResult": "enrolled",
+      "createdAt": "2026-10-02T10:30:00Z"
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-1",
+      "title": "Chuyên đề Bất đẳng thức Bunhiacopxki & Ứng dụng thi vào 10 Chuyên",
+      "type": "pdf",
+      "url": "#",
+      "grade": 9,
+      "subject": "Toán học",
+      "topic": "Bất đẳng thức & Cực trị",
+      "classId": "class-2",
+      "accessLevel": "all",
+      "fileSize": "3.4 MB",
+      "downloadCount": 42,
+      "createdAt": "2026-09-15T08:00:00Z"
+    },
+    {
+      "id": "res-2",
+      "title": "Tuyển tập 50 câu trắc nghiệm Véctơ & Hệ tọa độ Oxy có lời giải chi tiết",
+      "type": "pdf",
+      "url": "#",
+      "grade": 10,
+      "subject": "Toán học",
+      "topic": "Hình học phẳng & Véctơ",
+      "classId": "class-3",
+      "accessLevel": "all",
+      "fileSize": "2.1 MB",
+      "downloadCount": 28,
+      "createdAt": "2026-09-20T08:00:00Z"
+    },
+    {
+      "id": "res-3",
+      "title": "Sơ đồ tư duy Định lý Talet & Các trường hợp đồng dạng tam giác",
+      "type": "image",
+      "url": "#",
+      "grade": 8,
+      "subject": "Toán học",
+      "topic": "Tam giác đồng dạng",
+      "classId": "class-1",
+      "accessLevel": "all",
+      "fileSize": "1.2 MB",
+      "downloadCount": 35,
+      "createdAt": "2026-09-25T08:00:00Z"
+    },
+    {
+      "id": "res-4",
+      "title": "Đề thi chính thức Tuyển sinh vào lớp 10 Hà Nội (2020 - 2025) kèm đáp án biểu điểm",
+      "type": "pdf",
+      "url": "#",
+      "grade": 9,
+      "subject": "Toán học",
+      "topic": "Đề thi vào 10",
+      "classId": "all",
+      "accessLevel": "all",
+      "fileSize": "5.8 MB",
+      "downloadCount": 64,
+      "createdAt": "2026-10-01T08:00:00Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-1",
+      "title": "Kế hoạch Khảo sát trực tuyến đợt 1 - Tháng 10/2026",
+      "content": "Tất cả các bạn học sinh lớp Toán 9 và Toán 10 hoàn thành bài kiểm tra online 15 phút trên hệ thống trước 22h ngày 25/10. Hệ thống tự động chấm điểm và báo cáo kết quả về sổ học tập phụ huynh.",
+      "targetAudience": "all",
+      "author": "Thầy Sang Math",
+      "publishDate": "2026-10-12",
+      "priority": "important",
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "ann-2",
+      "title": "Ra mắt Cổng học tập & Theo dõi học phí phiên bản V3",
+      "content": "QClass Tutor Manager nâng cấp hỗ trợ học sinh làm bài tập tương tác trực tuyến, xem phân tích năng lực theo từng chuyên đề và phụ huynh có thể tra cứu lịch sử học phí và quét mã QR chuyển khoản tiện lợi.",
+      "targetAudience": "parents",
+      "author": "Ban Quản Trị QClass",
+      "publishDate": "2026-10-14",
+      "priority": "normal",
+      "createdAt": "2026-10-14T08:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1",
+      "userId": "all",
+      "title": "Bài tập mới được giao",
+      "message": "Thầy Sang đã giao Phiếu bài tập số 12: 10 bài toán cực trị đại số. Hạn nộp ngày 14/10.",
+      "type": "homework",
+      "isRead": false,
+      "createdAt": "2026-10-10T19:55:00Z"
+    },
+    {
+      "id": "notif-2",
+      "userId": "user-parent-1",
+      "title": "Thông báo điểm danh",
+      "message": "Em Nguyễn Văn An đã có mặt đầy đủ trong buổi học Toán 8 ngày 08/10.",
+      "type": "attendance",
+      "isRead": true,
+      "createdAt": "2026-10-08T19:05:00Z"
+    },
+    {
+      "id": "notif-3",
+      "userId": "user-parent-7",
+      "title": "Điểm kiểm tra xuất sắc",
+      "message": "Con Nguyễn Đức Minh đạt 9.5 điểm bài khảo sát 45 phút môn Toán. Thầy biểu dương tinh thần tự học của con.",
+      "type": "test",
+      "isRead": false,
+      "createdAt": "2026-10-07T20:10:00Z"
+    }
+  ],
+  "automationRules": [
+    {
+      "id": "auto-1",
+      "name": "Cảnh báo học phí sắp hết (≤ 2 buổi)",
+      "trigger": "Sau khi điểm danh trừ buổi",
+      "condition": "Số buổi còn lại <= 2",
+      "action": "Tạo thông báo cảnh báo và kích hoạt mẫu tin nhắn nhắc phụ huynh",
+      "isEnabled": true
+    },
+    {
+      "id": "auto-2",
+      "name": "Nhắc nhở học sinh nộp bài tập về nhà",
+      "trigger": "Trước hạn chót nộp bài 24 giờ",
+      "condition": "Học sinh chưa nộp bài tập",
+      "action": "Gửi thông báo nhắc nhở lên Cổng học sinh",
+      "isEnabled": true
+    },
+    {
+      "id": "auto-3",
+      "name": "Cảnh báo học sinh vắng 2 buổi liên tiếp",
+      "trigger": "Điểm danh có trạng thái Nghỉ",
+      "condition": "Học sinh vắng 2 buổi liên tục",
+      "action": "Ghim học sinh vào danh sách cần giáo viên liên hệ phụ huynh",
+      "isEnabled": true
+    },
+    {
+      "id": "auto-4",
+      "name": "Gợi ý bài tập bổ trợ khi điểm số < 6.0",
+      "trigger": "Sau khi nhập điểm kiểm tra",
+      "condition": "Điểm số bài kiểm tra < 6.0",
+      "action": "AI gợi ý 3 bài tập củng cố kiến thức nền tảng trong Cổng học sinh",
+      "isEnabled": true
+    }
+  ],
+  "tenant": {
+    "id": "tenant-qclass-1",
+    "name": "Hệ thống Lớp Toán QClass Academy",
+    "code": "QCLASS",
+    "plan": "center",
+    "brandColor": "#2563eb",
+    "features": {
+      "ai_enabled": true,
+      "adaptive_learning": true,
+      "multi_center": true,
+      "multi_teacher": true,
+      "worksheets": true,
+      "test_variants": true,
+      "automations": true,
+      "error_intelligence": true,
+      "white_label": false
+    },
+    "limits": {
+      "maxStudents": 1000,
+      "maxTeachers": 20,
+      "maxCenters": 5,
+      "aiCredits": 10000,
+      "storageMb": 5000
+    },
+    "aiCreditsUsed": 3420,
+    "aiCreditsQuota": 10000,
+    "createdAt": "2026-01-01T00:00:00Z"
+  },
+  "centers": [
+    {
+      "id": "center-1",
+      "tenantId": "tenant-qclass-1",
+      "name": "Cơ sở 1 - Cầu Giấy (Trụ sở chính)",
+      "code": "CS-CG",
+      "address": "Số 128 Cầu Giấy, Q. Cầu Giấy, Hà Nội",
+      "managerName": "Thầy Nguyễn Văn Sang",
+      "phone": "0386493786",
+      "activeStudentCount": 86,
+      "activeClassCount": 5,
+      "createdAt": "2026-01-10T08:00:00Z",
+      "classrooms": [
+        {
+          "id": "room-101",
+          "centerId": "center-1",
+          "name": "Phòng 201 - Archimedes",
+          "capacity": 25,
+          "equipment": [
+            "Smart TV 65\"",
+            "Điều hòa 2 chiều",
+            "Camera AI điểm danh"
+          ],
+          "status": "available"
+        },
+        {
+          "id": "room-102",
+          "centerId": "center-1",
+          "name": "Phòng 202 - Pythagoras",
+          "capacity": 20,
+          "equipment": [
+            "Máy chiếu Laser",
+            "Bảng từ trượt",
+            "Micro không dây"
+          ],
+          "status": "available"
+        },
+        {
+          "id": "room-103",
+          "centerId": "center-1",
+          "name": "Phòng 301 - Gauss",
+          "capacity": 30,
+          "equipment": [
+            "Màn hình tương tác",
+            "Hệ thống âm thanh hội trường"
+          ],
+          "status": "occupied"
+        }
+      ]
+    },
+    {
+      "id": "center-2",
+      "tenantId": "tenant-qclass-1",
+      "name": "Cơ sở 2 - Đống Đa",
+      "code": "CS-DD",
+      "address": "Số 45 Chùa Bộc, Q. Đống Đa, Hà Nội",
+      "managerName": "Cô Trần Thị Mai Lan",
+      "phone": "0988 777 666",
+      "activeStudentCount": 48,
+      "activeClassCount": 3,
+      "createdAt": "2026-03-01T08:00:00Z",
+      "classrooms": [
+        {
+          "id": "room-201",
+          "centerId": "center-2",
+          "name": "Phòng 101 - Newton",
+          "capacity": 20,
+          "equipment": [
+            "Smart TV 55\"",
+            "Điều hòa",
+            "Bảng kính"
+          ],
+          "status": "available"
+        },
+        {
+          "id": "room-202",
+          "centerId": "center-2",
+          "name": "Phòng 102 - Euler",
+          "capacity": 25,
+          "equipment": [
+            "Máy chiếu",
+            "Bảng từ"
+          ],
+          "status": "available"
+        }
+      ]
+    }
+  ],
+  "teachers": [
+    {
+      "id": "tc-1",
+      "tenantId": "tenant-qclass-1",
+      "name": "Thầy Nguyễn Văn Sang",
+      "phone": "0386493786",
+      "email": "sang.math@qclass.edu.vn",
+      "role": "lead",
+      "specialties": [
+        "Toán THCS & THPT",
+        "Toán 9 Luyện thi vào 10",
+        "Bất đẳng thức & Cực trị",
+        "Đại số nâng cao"
+      ],
+      "assignedClassIds": [
+        "class-1",
+        "class-2"
+      ],
+      "primaryCenterId": "center-1",
+      "rating": 4.9,
+      "weeklyHours": 18,
+      "activeStudents": 34,
+      "status": "active",
+      "avatar": "NS"
+    },
+    {
+      "id": "tc-2",
+      "tenantId": "tenant-qclass-1",
+      "name": "Thầy Lê Hoàng Nam",
+      "phone": "0977 112 334",
+      "email": "nam.le@qclass.edu.vn",
+      "role": "teacher",
+      "specialties": [
+        "Toán 10 - 11 - 12",
+        "Hình học Oxyz & Vector",
+        "Hàm số & Giải tích"
+      ],
+      "assignedClassIds": [
+        "class-3"
+      ],
+      "primaryCenterId": "center-1",
+      "rating": 4.8,
+      "weeklyHours": 14,
+      "activeStudents": 22,
+      "status": "active",
+      "avatar": "HN"
+    },
+    {
+      "id": "tc-3",
+      "tenantId": "tenant-qclass-1",
+      "name": "Cô Trần Thị Mai Lan",
+      "phone": "0988 777 666",
+      "email": "lan.tran@qclass.edu.vn",
+      "role": "assistant",
+      "specialties": [
+        "Bổ trợ Toán THCS",
+        "Chấm bài & Hướng dẫn tự học"
+      ],
+      "assignedClassIds": [
+        "class-1",
+        "class-2"
+      ],
+      "primaryCenterId": "center-2",
+      "rating": 4.7,
+      "weeklyHours": 10,
+      "activeStudents": 18,
+      "status": "active",
+      "avatar": "ML"
+    },
+    {
+      "id": "tc-4",
+      "tenantId": "tenant-qclass-1",
+      "name": "Thầy Phạm Quang Huy",
+      "phone": "0904 556 789",
+      "email": "huy.pq@qclass.edu.vn",
+      "role": "teacher",
+      "specialties": [
+        "Toán 8 Nâng cao",
+        "Hình học phẳng Euclid"
+      ],
+      "assignedClassIds": [
+        "class-1"
+      ],
+      "primaryCenterId": "center-2",
+      "rating": 4.9,
+      "weeklyHours": 12,
+      "activeStudents": 20,
+      "status": "active",
+      "avatar": "QH"
+    }
+  ],
+  "knowledgeTopics": [
+    {
+      "id": "top-can-thuc",
+      "code": "TOAN9-DS-01",
+      "grade": 9,
+      "name": "Căn thức bậc hai & Rút gọn đại số",
+      "category": "Đại số",
+      "prerequisites": [],
+      "requiredMasteryForNext": 70,
+      "recommendedNextTopics": [
+        "top-pt-bac-hai-9",
+        "top-bat-dang-thuc-9"
+      ],
+      "difficultyTier": 1,
+      "description": "Nắm chắc điều kiện xác định, quy tắc trục căn thức và rút gọn phân thức đại số chứa căn."
+    },
+    {
+      "id": "top-pt-bac-hai-9",
+      "code": "TOAN9-DS-02",
+      "grade": 9,
+      "name": "Phương trình bậc hai & Hệ thức Viète",
+      "category": "Đại số",
+      "prerequisites": [
+        "top-can-thuc"
+      ],
+      "requiredMasteryForNext": 75,
+      "recommendedNextTopics": [
+        "top-bat-dang-thuc-9"
+      ],
+      "difficultyTier": 2,
+      "description": "Tính biệt thức Delta, ứng dụng định lý Viète để tìm hai số hoặc tham số m thỏa mãn biểu thức đối xứng."
+    },
+    {
+      "id": "top-bat-dang-thuc-9",
+      "code": "TOAN9-DS-03",
+      "grade": 9,
+      "name": "Bất đẳng thức Cauchy & Cực trị đại số",
+      "category": "Đại số",
+      "prerequisites": [
+        "top-can-thuc",
+        "top-pt-bac-hai-9"
+      ],
+      "requiredMasteryForNext": 80,
+      "recommendedNextTopics": [],
+      "difficultyTier": 4,
+      "description": "Kỹ thuật chọn điểm rơi, ghép cặp đối xứng, bất đẳng thức Cauchy-Schwarz dạng cộng mẫu số (Engel)."
+    },
+    {
+      "id": "top-he-thuc-luong-9",
+      "code": "TOAN9-HH-01",
+      "grade": 9,
+      "name": "Hệ thức lượng trong tam giác vuông",
+      "category": "Hình học",
+      "prerequisites": [],
+      "requiredMasteryForNext": 70,
+      "recommendedNextTopics": [
+        "top-duong-tron-9"
+      ],
+      "difficultyTier": 1,
+      "description": "Các công thức liên hệ cạnh và đường cao, tỉ số lượng giác của góc nhọn (sin, cos, tan, cot)."
+    },
+    {
+      "id": "top-duong-tron-9",
+      "code": "TOAN9-HH-02",
+      "grade": 9,
+      "name": "Đường tròn & Tứ giác nội tiếp",
+      "category": "Hình học",
+      "prerequisites": [
+        "top-he-thuc-luong-9"
+      ],
+      "requiredMasteryForNext": 75,
+      "recommendedNextTopics": [],
+      "difficultyTier": 3,
+      "description": "Góc nội tiếp, góc tạo bởi tia tiếp tuyến và dây cung, 4 dấu hiệu nhận biết tứ giác nội tiếp đường tròn."
+    },
+    {
+      "id": "top-menh-de-10",
+      "code": "TOAN10-DS-01",
+      "grade": 10,
+      "name": "Mệnh đề & Tập hợp",
+      "category": "Đại số",
+      "prerequisites": [],
+      "requiredMasteryForNext": 70,
+      "recommendedNextTopics": [
+        "top-ham-so-10"
+      ],
+      "difficultyTier": 1,
+      "description": "Mệnh đề phủ định, mệnh đề kéo theo, các phép toán trên tập hợp (giao, hợp, hiệu, phần bù)."
+    },
+    {
+      "id": "top-ham-so-10",
+      "code": "TOAN10-DS-02",
+      "grade": 10,
+      "name": "Hàm số bậc nhất & bậc hai",
+      "category": "Đại số",
+      "prerequisites": [
+        "top-menh-de-10"
+      ],
+      "requiredMasteryForNext": 70,
+      "recommendedNextTopics": [
+        "top-bpt-10"
+      ],
+      "difficultyTier": 2,
+      "description": "Tập xác định, sự biến thiên, đồ thị Parabol và ứng dụng tìm giá trị lớn nhất, nhỏ nhất."
+    },
+    {
+      "id": "top-vector-10",
+      "code": "TOAN10-HH-01",
+      "grade": 10,
+      "name": "Véctơ & Các phép toán véctơ",
+      "category": "Hình học",
+      "prerequisites": [],
+      "requiredMasteryForNext": 75,
+      "recommendedNextTopics": [
+        "top-tich-vo-huong-10"
+      ],
+      "difficultyTier": 2,
+      "description": "Quy tắc ba điểm, quy tắc hình bình hành, phân tích một véctơ theo hai véctơ không cùng phương."
+    },
+    {
+      "id": "top-tich-vo-huong-10",
+      "code": "TOAN10-HH-02",
+      "grade": 10,
+      "name": "Tích vô hướng của hai véctơ & Ứng dụng",
+      "category": "Hình học",
+      "prerequisites": [
+        "top-vector-10"
+      ],
+      "requiredMasteryForNext": 75,
+      "recommendedNextTopics": [],
+      "difficultyTier": 3,
+      "description": "Định nghĩa tích vô hướng, biểu thức tọa độ, tính góc giữa hai véctơ, chứng minh vuông góc."
+    }
+  ],
+  "studentMasteries": [
+    {
+      "id": "mst-1",
+      "studentId": "std-1",
+      "topicId": "top-can-thuc",
+      "topicName": "Căn thức bậc hai & Rút gọn đại số",
+      "grade": 9,
+      "masteryScore": 88,
+      "confidenceScore": 85,
+      "practiceCount": 24,
+      "correctCount": 21,
+      "incorrectCount": 3,
+      "lastPracticed": "2026-10-12T19:00:00Z",
+      "lastTested": "2026-10-08T20:00:00Z"
+    },
+    {
+      "id": "mst-2",
+      "studentId": "std-1",
+      "topicId": "top-pt-bac-hai-9",
+      "topicName": "Phương trình bậc hai & Hệ thức Viète",
+      "grade": 9,
+      "masteryScore": 72,
+      "confidenceScore": 70,
+      "practiceCount": 16,
+      "correctCount": 12,
+      "incorrectCount": 4,
+      "lastPracticed": "2026-10-11T19:00:00Z",
+      "lastTested": "2026-10-05T20:00:00Z"
+    },
+    {
+      "id": "mst-3",
+      "studentId": "std-1",
+      "topicId": "top-bat-dang-thuc-9",
+      "topicName": "Bất đẳng thức Cauchy & Cực trị đại số",
+      "grade": 9,
+      "masteryScore": 48,
+      "confidenceScore": 60,
+      "practiceCount": 12,
+      "correctCount": 6,
+      "incorrectCount": 6,
+      "lastPracticed": "2026-10-10T19:00:00Z",
+      "lastTested": "2026-10-07T20:00:00Z"
+    },
+    {
+      "id": "mst-4",
+      "studentId": "std-1",
+      "topicId": "top-duong-tron-9",
+      "topicName": "Đường tròn & Tứ giác nội tiếp",
+      "grade": 9,
+      "masteryScore": 65,
+      "confidenceScore": 65,
+      "practiceCount": 14,
+      "correctCount": 9,
+      "incorrectCount": 5,
+      "lastPracticed": "2026-10-09T19:00:00Z",
+      "lastTested": "2026-10-01T20:00:00Z"
+    },
+    {
+      "id": "mst-5",
+      "studentId": "std-7",
+      "topicId": "top-can-thuc",
+      "topicName": "Căn thức bậc hai & Rút gọn đại số",
+      "grade": 9,
+      "masteryScore": 95,
+      "confidenceScore": 90,
+      "practiceCount": 30,
+      "correctCount": 29,
+      "incorrectCount": 1,
+      "lastPracticed": "2026-10-13T19:00:00Z",
+      "lastTested": "2026-10-10T20:00:00Z"
+    },
+    {
+      "id": "mst-6",
+      "studentId": "std-7",
+      "topicId": "top-bat-dang-thuc-9",
+      "topicName": "Bất đẳng thức Cauchy & Cực trị đại số",
+      "grade": 9,
+      "masteryScore": 86,
+      "confidenceScore": 80,
+      "practiceCount": 20,
+      "correctCount": 17,
+      "incorrectCount": 3,
+      "lastPracticed": "2026-10-12T19:00:00Z",
+      "lastTested": "2026-10-10T20:00:00Z"
+    }
+  ],
+  "studentErrors": [
+    {
+      "id": "err-1",
+      "studentId": "std-1",
+      "topic": "Bất đẳng thức & Cực trị",
+      "errorType": "sai_dieu_kien",
+      "source": "test",
+      "questionSummary": "Áp dụng BĐT Cauchy cho 1/x + 1/y nhưng quên kiểm tra điều kiện dấu bằng xảy ra khi x = y = 1.",
+      "correctionNote": "Cần ghi rõ: \"Dấu = xảy ra khi và chỉ khi x = y = 1 thỏa mãn giả thiết\".",
+      "teacherConfirmed": true,
+      "timestamp": "2026-10-10T19:30:00Z"
+    },
+    {
+      "id": "err-2",
+      "studentId": "std-1",
+      "topic": "Phương trình bậc hai",
+      "errorType": "sai_dau",
+      "source": "homework",
+      "questionSummary": "Chuyển vế -5x qua vế phải thành -5x thay vì đổi dấu thành +5x.",
+      "correctionNote": "Quy tắc chuyển vế phải đổi dấu: -b sang vế kia là +b.",
+      "teacherConfirmed": true,
+      "timestamp": "2026-10-09T18:45:00Z"
+    },
+    {
+      "id": "err-3",
+      "studentId": "std-1",
+      "topic": "Căn thức bậc hai",
+      "errorType": "sai_tinh_toan",
+      "source": "practice",
+      "questionSummary": "Rút gọn mẫu số: (3 - √5)(3 + √5) tính nhầm thành 9 - 25 thay vì 9 - 5 = 4.",
+      "correctionNote": "Hằng đẳng thức (a - b)(a + b) = a² - b².",
+      "teacherConfirmed": true,
+      "timestamp": "2026-10-08T19:15:00Z"
+    },
+    {
+      "id": "err-4",
+      "studentId": "std-4",
+      "topic": "Đường tròn & Tứ giác nội tiếp",
+      "errorType": "thieu_buoc",
+      "source": "test",
+      "questionSummary": "Kết luận tứ giác ABCD nội tiếp nhưng chưa chứng minh hai góc đối có tổng bằng 180 độ.",
+      "correctionNote": "Phải chỉ rõ: góc ABC + góc ADC = 90 + 90 = 180 độ.",
+      "teacherConfirmed": true,
+      "timestamp": "2026-10-07T20:10:00Z"
+    }
+  ],
+  "aiQuestionDrafts": [
+    {
+      "id": "draft-1",
+      "subject": "Toán học",
+      "grade": 9,
+      "topic": "Bất đẳng thức & Cực trị",
+      "skill": "Bất đẳng thức Cauchy cộng mẫu",
+      "difficulty": "application",
+      "questionType": "single_choice",
+      "questionText": "Cho hai số dương a, b thỏa mãn a + b = 4. Tìm giá trị nhỏ nhất của biểu thức P = 1/(a + 1) + 1/(b + 1).",
+      "options": [
+        {
+          "id": "d-opt-1",
+          "text": "Min P = 2/3 (khi a = b = 2)",
+          "isCorrect": true
+        },
+        {
+          "id": "d-opt-2",
+          "text": "Min P = 1/2 (khi a = b = 2)",
+          "isCorrect": false
+        },
+        {
+          "id": "d-opt-3",
+          "text": "Min P = 4/3",
+          "isCorrect": false
+        },
+        {
+          "id": "d-opt-4",
+          "text": "Min P = 1",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Đặt x = a + 1 > 0, y = b + 1 > 0. Ta có x + y = a + b + 2 = 6. Áp dụng BĐT Cauchy-Schwarz: 1/x + 1/y >= 4/(x + y) = 4/6 = 2/3. Dấu bằng xảy ra khi x = y <=> a = b = 2. Vậy Min P = 2/3.",
+      "hints": [
+        "Đặt ẩn phụ x = a + 1, y = b + 1 để biểu thức gọn hơn",
+        "Nhớ công thức cộng mẫu: 1/x + 1/y >= 4/(x + y)"
+      ],
+      "commonMistakes": [
+        "Quên cộng 2 vào tổng x + y",
+        "Nhầm công thức cộng mẫu thành 2/(x + y)"
+      ],
+      "status": "draft",
+      "duplicateWarning": "Không trùng lặp với câu hỏi có sẵn.",
+      "createdAt": "2026-10-13T14:00:00Z"
+    },
+    {
+      "id": "draft-2",
+      "subject": "Toán học",
+      "grade": 10,
+      "topic": "Véctơ & Hệ tọa độ Oxy",
+      "skill": "Tích vô hướng hai véctơ",
+      "difficulty": "comprehension",
+      "questionType": "numeric",
+      "questionText": "Trong mặt phẳng Oxy, cho véctơ u = (2; -3) và véctơ v = (4; 1). Tính tích vô hướng u · v.",
+      "correctNumericAnswer": 5,
+      "explanation": "Tích vô hướng trong tọa độ: u · v = x_u * x_v + y_u * y_v = 2 * 4 + (-3) * 1 = 8 - 3 = 5.",
+      "hints": [
+        "Nhân hoành độ với hoành độ, tung độ với tung độ rồi cộng lại"
+      ],
+      "commonMistakes": [
+        "Tính nhầm thành véctơ (8; -3) thay vì một số thực"
+      ],
+      "status": "draft",
+      "createdAt": "2026-10-13T14:10:00Z"
+    },
+    {
+      "id": "draft-3",
+      "subject": "Toán học",
+      "grade": 9,
+      "topic": "Hệ thức lượng trong tam giác vuông",
+      "skill": "Tính độ dài đường cao",
+      "difficulty": "recognition",
+      "questionType": "single_choice",
+      "questionText": "Cho tam giác ABC vuông tại A có AB = 6 cm, AC = 8 cm. Độ dài đường cao AH là:",
+      "options": [
+        {
+          "id": "d-opt-3-1",
+          "text": "4.8 cm",
+          "isCorrect": true
+        },
+        {
+          "id": "d-opt-3-2",
+          "text": "5.0 cm",
+          "isCorrect": false
+        },
+        {
+          "id": "d-opt-3-3",
+          "text": "4.0 cm",
+          "isCorrect": false
+        },
+        {
+          "id": "d-opt-3-4",
+          "text": "5.2 cm",
+          "isCorrect": false
+        }
+      ],
+      "explanation": "Áp dụng định lý Pytago: BC = √(6² + 8²) = 10 cm. Ta có: AH * BC = AB * AC => AH = (6 * 8) / 10 = 4.8 cm.",
+      "status": "draft",
+      "createdAt": "2026-10-13T14:20:00Z"
+    }
+  ],
+  "worksheets": [
+    {
+      "id": "ws-1",
+      "title": "Phiếu Bài Tập Phân Hóa: Chuyên Đề Bất Đẳng Thức Cauchy",
+      "classId": "class-2",
+      "type": "weak_topic",
+      "targetStudentGroup": "foundation",
+      "topic": "Bất đẳng thức & Cực trị",
+      "grade": 9,
+      "questions": [],
+      "instructions": "Học sinh làm từng bài tập, trình bày rõ điều kiện xác định và chỉ rõ dấu bằng xảy ra.",
+      "answerKeyVisible": false,
+      "createdAt": "2026-10-10T16:00:00Z"
+    },
+    {
+      "id": "ws-2",
+      "title": "Phiếu Ôn Tập Tổng Hợp: Khảo Sát Giữa Kỳ 1 (Mã đề A & B)",
+      "classId": "class-3",
+      "type": "exam_prep",
+      "targetStudentGroup": "all",
+      "topic": "Véctơ & Hàm số",
+      "grade": 10,
+      "questions": [],
+      "instructions": "Thời gian làm bài: 45 phút. Không dùng máy tính bỏ túi phần tự luận.",
+      "answerKeyVisible": true,
+      "createdAt": "2026-10-11T16:00:00Z"
+    }
+  ],
+  "automationWorkflows": [
+    {
+      "id": "wf-1",
+      "name": "Cảnh báo học sinh còn <= 2 buổi học phí",
+      "trigger": "package_low",
+      "conditionText": "remainingLessons <= 2",
+      "actionType": "generate_message_draft",
+      "requiresApproval": true,
+      "isEnabled": true,
+      "runCount": 14,
+      "lastRun": "2026-10-13T09:00:00Z"
+    },
+    {
+      "id": "wf-2",
+      "name": "Phát hiện học sinh vắng học không phép",
+      "trigger": "student_absent",
+      "conditionText": "status == \"unexcused\"",
+      "actionType": "create_task",
+      "requiresApproval": false,
+      "isEnabled": true,
+      "runCount": 3,
+      "lastRun": "2026-10-10T19:45:00Z"
+    },
+    {
+      "id": "wf-3",
+      "name": "Gợi ý bài tập bổ trợ khi điểm kiểm tra < 5.0",
+      "trigger": "test_completed",
+      "conditionText": "score < 5.0",
+      "actionType": "assign_practice",
+      "requiresApproval": true,
+      "isEnabled": true,
+      "runCount": 5,
+      "lastRun": "2026-10-08T20:30:00Z"
+    },
+    {
+      "id": "wf-4",
+      "name": "Lead mới từ Website -> Giao giáo viên liên hệ trong 2h",
+      "trigger": "lead_created",
+      "conditionText": "source == \"Website\"",
+      "actionType": "create_task",
+      "requiresApproval": false,
+      "isEnabled": true,
+      "runCount": 8,
+      "lastRun": "2026-10-12T15:00:00Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Xác nhận đối soát 600.000 đ chuyển khoản học phí em Nguyễn Văn An",
+      "assignedTeacherId": "tc-1",
+      "studentId": "std-1",
+      "classId": "class-2",
+      "priority": "high",
+      "dueDate": "2026-10-15",
+      "status": "pending",
+      "category": "tuition",
+      "notes": "Kiểm tra biến động số dư tài khoản MB Bank",
+      "createdAt": "2026-10-13T08:00:00Z"
+    },
+    {
+      "id": "task-2",
+      "title": "Phụ đạo 20 phút trước giờ học về phần Bất đẳng thức cho em An",
+      "assignedTeacherId": "tc-3",
+      "studentId": "std-1",
+      "classId": "class-2",
+      "priority": "medium",
+      "dueDate": "2026-10-15",
+      "status": "pending",
+      "category": "academic",
+      "notes": "Kèm kỹ thuật chọn điểm rơi Cauchy",
+      "createdAt": "2026-10-13T09:30:00Z"
+    },
+    {
+      "id": "task-3",
+      "title": "Gọi điện tư vấn phụ huynh Lead mới: Em Hoàng Mai Anh (Khối 9)",
+      "assignedTeacherId": "tc-1",
+      "priority": "high",
+      "dueDate": "2026-10-14",
+      "status": "pending",
+      "category": "lead",
+      "notes": "Phụ huynh quan tâm lớp Toán 9 chất lượng cao, hẹn học thử",
+      "createdAt": "2026-10-14T07:15:00Z"
+    },
+    {
+      "id": "task-4",
+      "title": "In phiếu bài tập chuyên đề Vector cho lớp Toán 10 (22 bản)",
+      "assignedTeacherId": "tc-2",
+      "classId": "class-3",
+      "priority": "low",
+      "dueDate": "2026-10-16",
+      "status": "completed",
+      "category": "academic",
+      "notes": "Đã in xong và để tại bàn giáo viên phòng Archimedes",
+      "createdAt": "2026-10-12T14:00:00Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "audit-1",
+      "actorId": "user-admin",
+      "actorName": "Thầy Nguyễn Đức Quang",
+      "tenantId": "tenant-qclass-1",
+      "action": "APPROVE_QUESTION",
+      "entityType": "QuestionBank",
+      "entityId": "qb-1",
+      "summary": "Đã phê duyệt câu hỏi Bất đẳng thức Cauchy vào Ngân hàng câu hỏi chính thức.",
+      "timestamp": "2026-10-13T10:15:00Z"
+    },
+    {
+      "id": "audit-2",
+      "actorId": "system",
+      "actorName": "Hệ thống tự động",
+      "tenantId": "tenant-qclass-1",
+      "action": "DEDUCT_LESSON",
+      "entityType": "TuitionPackage",
+      "entityId": "pkg-1",
+      "summary": "Đã trừ 1 buổi học phí sau khi điểm danh lớp Toán 9 (Buổi 11).",
+      "timestamp": "2026-10-10T19:46:00Z"
+    },
+    {
+      "id": "audit-3",
+      "actorId": "user-admin",
+      "actorName": "Thầy Nguyễn Đức Quang",
+      "tenantId": "tenant-qclass-1",
+      "action": "CREATE_CLASSROOM",
+      "entityType": "Classroom",
+      "entityId": "room-103",
+      "summary": "Đã thiết lập Phòng 301 - Gauss (sức chứa 30 học sinh) tại Cơ sở Cầu Giấy.",
+      "timestamp": "2026-10-01T08:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix QClass Tutor Manager",
+  "description": "Hệ thống quản lý lớp học dạy thêm và trung tâm Toán chuyên nghiệp: AI Workspace, bản đồ năng lực cá nhân hóa, điểm danh trừ buổi thông minh, ngân hàng đề thi ma trận và đa cổng giáo viên - học sinh - phụ huynh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
