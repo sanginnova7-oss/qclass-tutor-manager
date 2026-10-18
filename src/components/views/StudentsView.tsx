@@ -11,10 +11,12 @@ import {
   Phone,
   AlertCircle,
   FileText,
+  FileSpreadsheet,
 } from 'lucide-react';
 import { db } from '../../services/db';
 import { Student, StudentStatus } from '../../types';
 import { formatVND, STUDENT_STATUS_LABELS } from '../../utils/formatters';
+import { ExcelImportModal } from '../modals/ExcelImportModal';
 
 interface StudentsViewProps {
   onSelectStudent: (studentId: string) => void;
@@ -38,6 +40,7 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
   const [selectedGrade, setSelectedGrade] = useState<string>('all');
   const [selectedStatus, setSelectedStatus] = useState<string>('active');
   const [actionMenuStudentId, setActionMenuStudentId] = useState<string | null>(null);
+  const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
 
   const students = db.getStudents();
   const classes = db.getClasses();
@@ -90,13 +93,23 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
           </p>
         </div>
 
-        <button
-          onClick={onOpenAddStudent}
-          className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors cursor-pointer"
-        >
-          <UserPlus className="w-4 h-4" />
-          <span>+ Thêm học sinh mới</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setIsExcelModalOpen(true)}
+            className="flex items-center justify-center gap-1.5 px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-semibold rounded-xl shadow-2xs transition-colors cursor-pointer"
+          >
+            <FileSpreadsheet className="w-4 h-4 text-emerald-600" />
+            <span>📋 Nhập từ Excel (Copy-Paste)</span>
+          </button>
+
+          <button
+            onClick={onOpenAddStudent}
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-xs transition-colors cursor-pointer"
+          >
+            <UserPlus className="w-4 h-4" />
+            <span>+ Thêm học sinh mới</span>
+          </button>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
@@ -314,6 +327,12 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
           </table>
         </div>
       </div>
+
+      {/* Excel Import Modal */}
+      <ExcelImportModal
+        isOpen={isExcelModalOpen}
+        onClose={() => setIsExcelModalOpen(false)}
+      />
     </div>
   );
 };

@@ -73,7 +73,7 @@ export const TopBar: React.FC<TopBarProps> = ({
               <span>Hôm nay: {todayStr}</span>
             </span>
             <span>·</span>
-            <span className="text-blue-600 font-medium">Toán Thầy Quang</span>
+            <span className="text-blue-600 font-medium">{db.getSettings().teacherName || 'Toán Thầy Nguyễn Văn Sang'}</span>
           </div>
         </div>
       </div>

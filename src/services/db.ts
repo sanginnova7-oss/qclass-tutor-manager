@@ -789,6 +789,158 @@ class DatabaseService {
     }
   }
 
+  public deleteClass(id: string): boolean {
+    const cls = this.classes.find((c) => c.id === id);
+    if (!cls) return false;
+
+    const studentCount = cls.studentIds.length;
+    this.classes = this.classes.filter((c) => c.id !== id);
+
+    this.logActivity({
+      type: 'class',
+      title: `Xóa lớp học: ${cls.name}`,
+      description: `Đã xóa lớp học ${cls.name} (Khối ${cls.grade}, có ${studentCount} học sinh).`,
+      classId: id,
+    });
+
+    this.saveToStorage(false, {
+      id: `evt-del-class-${id}`,
+      type: 'system',
+      title: 'Đã xóa lớp học',
+      description: `Lớp ${cls.name} đã được xóa thành công.`,
+      timestamp: new Date().toISOString(),
+      badge: 'Đã xóa',
+    });
+    return true;
+  }
+
+  public bulkAddStudents(studentsData: Array<{
+    fullName: string;
+    grade?: number;
+    school?: string;
+    parentName?: string;
+    parentPhone?: string;
+    studentPhone?: string;
+    defaultTuitionRate?: number;
+    initialPackageLessons?: number;
+    classId?: string;
+    notes?: string;
+  }>): { addedStudents: Student[]; count: number } {
+    const addedStudents: Student[] = [];
+    const now = new Date().toISOString();
+
+    for (const item of studentsData) {
+      if (!item.fullName || !item.fullName.trim()) continue;
+
+      const id = `std-${Date.now()}-${Math.floor(100 + Math.random() * 900)}`;
+      const rate = item.defaultTuitionRate || this.settings.defaultTuitionRate || 60000;
+      const initialLessons = item.initialPackageLessons ?? 10;
+
+      const newStudent: Student = {
+        id,
+        fullName: item.fullName.trim(),
+        grade: Number(item.grade) || 9,
+        school: item.school?.trim() || 'Chưa cập nhật',
+        parentName: item.parentName?.trim() || 'Phụ huynh',
+        parentPhone: item.parentPhone?.trim() || '',
+        studentPhone: item.studentPhone?.trim() || '',
+        defaultTuitionRate: rate,
+        enrollmentDate: now.split('T')[0],
+        status: 'active',
+        notes: item.notes?.trim() || 'Nhập từ bảng tính Excel',
+        createdAt: now,
+        updatedAt: now,
+      };
+
+      this.students.unshift(newStudent);
+      addedStudents.push(newStudent);
+
+      // Create user entry for student
+      this.users.push({
+        id: `user-${id}`,
+        name: newStudent.fullName,
+        role: 'student',
+        studentId: id,
+        phone: newStudent.studentPhone,
+        avatar: newStudent.fullName.slice(0, 2).toUpperCase(),
+      });
+
+      if (newStudent.parentPhone) {
+        this.users.push({
+          id: `user-parent-${id}`,
+          name: `${newStudent.parentName} (PH ${newStudent.fullName})`,
+          role: 'parent',
+          studentIds: [id],
+          phone: newStudent.parentPhone,
+          avatar: 'PH',
+        });
+      }
+
+      // If initial package specified
+      if (initialLessons > 0) {
+        const pkgId = `pkg-${Date.now()}-${id}`;
+        const payId = `pay-${Date.now()}-${id}`;
+        const amount = initialLessons * rate;
+
+        this.packages.unshift({
+          id: pkgId,
+          studentId: id,
+          paymentId: payId,
+          totalLessons: initialLessons,
+          usedLessons: 0,
+          remainingLessons: initialLessons,
+          pricePerLesson: rate,
+          startDate: now.split('T')[0],
+          status: 'active',
+          note: `Gói học phí ban đầu khi nhập học (${initialLessons} buổi)`,
+          createdAt: now,
+        });
+
+        this.payments.unshift({
+          id: payId,
+          studentId: id,
+          packageId: pkgId,
+          amount,
+          lessonQuantity: initialLessons,
+          pricePerLesson: rate,
+          paymentMethod: 'transfer',
+          paymentDate: now.split('T')[0],
+          receiptNumber: `HP-${now.split('T')[0].replace(/-/g, '')}-${Math.floor(100 + Math.random() * 900)}`,
+          note: 'Gói học phí ban đầu khi nhập học',
+          status: 'confirmed',
+          createdAt: now,
+        });
+      }
+
+      // Assign to class if specified
+      if (item.classId) {
+        const cls = this.classes.find((c) => c.id === item.classId);
+        if (cls && !cls.studentIds.includes(id)) {
+          cls.studentIds.push(id);
+        }
+      }
+    }
+
+    if (addedStudents.length > 0) {
+      this.logActivity({
+        type: 'student',
+        title: `Nhập danh sách học sinh: +${addedStudents.length} học sinh`,
+        description: `Đã thêm ${addedStudents.length} học sinh mới từ Excel vào hệ thống.`,
+      });
+
+      this.saveToStorage(false, {
+        id: `evt-bulk-${Date.now()}`,
+        type: 'student',
+        title: 'Đã nhập danh sách học sinh từ Excel',
+        description: `Thêm thành công ${addedStudents.length} học sinh vào hệ thống`,
+        timestamp: now,
+        badge: `+${addedStudents.length} HS`,
+      });
+    }
+
+    return { addedStudents, count: addedStudents.length };
+  }
+
   // --- ATTENDANCE & DEDUCTION ENGINE ---
   public recordAttendanceSession(params: {
     classId: string;
