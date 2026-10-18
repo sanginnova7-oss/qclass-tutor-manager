@@ -37,6 +37,28 @@ export function formatDateTimeVN(dateInput: string | Date | undefined): string {
 }
 
 /**
+ * Get Vietnamese day of the week: Thứ 2, Thứ 3, ..., Chủ nhật
+ */
+export function getDayOfWeekVN(dateInput: string | Date | undefined): string {
+  if (!dateInput) return '';
+  // Support YYYY-MM-DD string parsing without timezone offset surprises
+  let d: Date;
+  if (typeof dateInput === 'string') {
+    const parts = dateInput.split('-');
+    if (parts.length === 3) {
+      d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+    } else {
+      d = new Date(dateInput);
+    }
+  } else {
+    d = dateInput;
+  }
+  if (isNaN(d.getTime())) return '';
+  const dayNames = ['Chủ nhật', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+  return dayNames[d.getDay()];
+}
+
+/**
  * Get current date in YYYY-MM-DD
  */
 export function getTodayISODate(): string {

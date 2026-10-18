@@ -295,28 +295,49 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
 
             <div className="space-y-3">
-              {displayClasses.map((c) => (
-                <div
-                  key={c.id}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors gap-3"
-                >
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h4 className="font-semibold text-sm text-slate-900">{c.name}</h4>
-                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-medium">
-                        Khối {c.grade}
-                      </span>
+              {displayClasses.map((c) => {
+                const todaySched = c.schedules?.find(
+                  (s) => s.day.toLowerCase() === todayDayName.toLowerCase()
+                ) || c.schedules?.[0];
+                const displayStart = todaySched?.startTime || c.startTime;
+                const displayEnd = todaySched?.endTime || c.endTime;
+                const displayRoom = todaySched?.room || c.room || 'Phòng học chính';
+                const hasCustomSchedule =
+                  c.schedules &&
+                  c.schedules.length > 1 &&
+                  c.schedules.some(
+                    (s) =>
+                      s.startTime !== c.schedules![0].startTime ||
+                      s.endTime !== c.schedules![0].endTime
+                  );
+
+                return (
+                  <div
+                    key={c.id}
+                    className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl border border-slate-200/90 bg-slate-50/60 hover:bg-slate-50 transition-colors gap-3"
+                  >
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-semibold text-sm text-slate-900">{c.name}</h4>
+                        <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-medium">
+                          Khối {c.grade}
+                        </span>
+                        {hasCustomSchedule && (
+                          <span className="text-[10px] bg-indigo-50 text-indigo-700 font-semibold px-1.5 py-0.5 rounded border border-indigo-100">
+                            Giờ riêng từng ngày
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1.5">
+                        <span className="font-mono tabular-nums font-medium text-slate-800 bg-white px-2 py-0.5 rounded border border-slate-200">
+                          🕒 {displayStart} – {displayEnd}
+                        </span>
+                        <span>·</span>
+                        <span>👥 {c.studentIds.length} học sinh</span>
+                        <span>·</span>
+                        <span>📍 {displayRoom}</span>
+                      </div>
                     </div>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mt-1.5">
-                      <span className="font-mono tabular-nums font-medium text-slate-700">
-                        🕒 {c.startTime} – {c.endTime}
-                      </span>
-                      <span>·</span>
-                      <span>👥 {c.studentIds.length} học sinh</span>
-                      <span>·</span>
-                      <span>📍 {c.room || 'Phòng học chính'}</span>
-                    </div>
-                  </div>
 
                   <div className="flex items-center gap-2 shrink-0">
                     <button
@@ -328,7 +349,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     </button>
                   </div>
                 </div>
-              ))}
+              );
+            })}
             </div>
           </div>
 

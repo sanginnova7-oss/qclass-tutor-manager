@@ -15,9 +15,10 @@ import {
   UserPlus,
   Eye,
   CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
 import { db } from '../../services/db';
-import { ClassItem } from '../../types';
+import { ClassItem, DaySchedule } from '../../types';
 import { formatDateVN, formatVND } from '../../utils/formatters';
 import { EditClassModal } from '../modals/EditClassModal';
 import { ExcelImportModal } from '../modals/ExcelImportModal';
@@ -26,6 +27,8 @@ interface ClassesViewProps {
   onOpenAttendanceForClass: (classId: string) => void;
   onSelectStudent: (studentId: string) => void;
 }
+
+const DAYS_OF_WEEK = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'];
 
 export const ClassesView: React.FC<ClassesViewProps> = ({
   onOpenAttendanceForClass,
@@ -57,19 +60,69 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
   const [endTime, setEndTime] = useState('19:30');
   const [room, setRoom] = useState('Phòng 201');
 
+  // Per-day schedule state for creating new class
+  const [useCustomCreateTimes, setUseCustomCreateTimes] = useState(false);
+  const [createSchedules, setCreateSchedules] = useState<DaySchedule[]>([
+    { day: 'Thứ 2', startTime: '18:00', endTime: '19:30', room: 'Phòng 201' },
+    { day: 'Thứ 4', startTime: '18:00', endTime: '19:30', room: 'Phòng 201' },
+  ]);
+
   const selectedClass = classes.find((c) => c.id === selectedClassId);
 
   const handleToggleDay = (day: string) => {
+    let newDays: string[];
     if (scheduleDays.includes(day)) {
-      setScheduleDays(scheduleDays.filter((d) => d !== day));
+      newDays = scheduleDays.filter((d) => d !== day);
+      setScheduleDays(newDays);
+      setCreateSchedules((prev) => prev.filter((s) => s.day !== day));
     } else {
-      setScheduleDays([...scheduleDays, day]);
+      newDays = [...scheduleDays, day];
+      setScheduleDays(newDays);
+      setCreateSchedules((prev) => [
+        ...prev,
+        {
+          day,
+          startTime,
+          endTime,
+          room,
+        },
+      ]);
     }
+  };
+
+  const handleUpdateCreateDayTime = (
+    day: string,
+    field: 'startTime' | 'endTime' | 'room',
+    value: string
+  ) => {
+    setCreateSchedules((prev) =>
+      prev.map((item) => (item.day === day ? { ...item, [field]: value } : item))
+    );
+  };
+
+  const handleApplyPreset = (day: string, start: string, end: string) => {
+    handleUpdateCreateDayTime(day, 'startTime', start);
+    handleUpdateCreateDayTime(day, 'endTime', end);
   };
 
   const handleCreateClass = (e: React.FormEvent) => {
     e.preventDefault();
     if (!className.trim() || scheduleDays.length === 0) return;
+
+    const finalSchedules: DaySchedule[] = scheduleDays.map((d) => {
+      const existing = createSchedules.find((s) => s.day === d);
+      return (
+        existing || {
+          day: d,
+          startTime,
+          endTime,
+          room,
+        }
+      );
+    });
+
+    const primaryStartTime = finalSchedules[0]?.startTime || startTime;
+    const primaryEndTime = finalSchedules[0]?.endTime || endTime;
 
     db.addClass({
       name: className.trim(),
@@ -77,8 +130,9 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
       grade: Number(grade),
       defaultTuitionRate,
       scheduleDays,
-      startTime,
-      endTime,
+      startTime: primaryStartTime,
+      endTime: primaryEndTime,
+      schedules: finalSchedules,
       room,
       studentIds: [],
       status: 'active',
@@ -86,6 +140,7 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
 
     setShowAddClassModal(false);
     setClassName('');
+    setUseCustomCreateTimes(false);
   };
 
   const handleConfirmDeleteClass = () => {
@@ -145,6 +200,14 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {classes.map((cls) => {
           const classStudents = students.filter((s) => cls.studentIds.includes(s.id));
+          const hasCustomPerDay =
+            cls.schedules &&
+            cls.schedules.length > 0 &&
+            cls.schedules.some(
+              (s) =>
+                s.startTime !== cls.schedules![0].startTime ||
+                s.endTime !== cls.schedules![0].endTime
+            );
 
           return (
             <div
@@ -184,16 +247,42 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                    <span>
-                      {cls.scheduleDays.join(', ')} ·{' '}
-                      <strong className="font-mono text-slate-800">
-                        {cls.startTime} - {cls.endTime}
-                      </strong>
-                    </span>
-                  </div>
+                <div className="space-y-2.5 text-xs text-slate-600 border-t border-slate-100 pt-3">
+                  {/* Schedule display: Single row or multi-day list */}
+                  {hasCustomPerDay ? (
+                    <div className="space-y-1 bg-slate-50 p-2 rounded-xl border border-slate-100">
+                      <div className="flex items-center justify-between text-[11px] font-bold text-slate-700 mb-0.5">
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5 text-blue-600" />
+                          <span>Lịch học (Giờ riêng từng ngày):</span>
+                        </span>
+                      </div>
+                      <div className="divide-y divide-slate-200/60 font-mono text-[11px]">
+                        {cls.schedules!.map((s) => (
+                          <div
+                            key={s.day}
+                            className="py-1 flex items-center justify-between text-slate-700"
+                          >
+                            <span className="font-sans font-semibold text-blue-900">{s.day}:</span>
+                            <span className="font-semibold text-slate-800">
+                              {s.startTime} - {s.endTime}
+                              {s.room && s.room !== cls.room ? ` (${s.room})` : ''}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+                      <span>
+                        {cls.scheduleDays.join(', ')} ·{' '}
+                        <strong className="font-mono text-slate-800">
+                          {cls.startTime} - {cls.endTime}
+                        </strong>
+                      </span>
+                    </div>
+                  )}
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -310,7 +399,7 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                     <h3 className="font-bold text-slate-900 text-lg">{selectedClass.name}</h3>
                   </div>
                   <p className="text-xs text-slate-500">
-                    Phòng: {selectedClass.room || 'Chưa cập nhật'} · {selectedClass.scheduleDays.join(', ')} ({selectedClass.startTime} - {selectedClass.endTime})
+                    Phòng: {selectedClass.room || 'Chưa cập nhật'} · {selectedClass.scheduleDays.join(', ')}
                   </p>
                 </div>
               </div>
@@ -343,25 +432,44 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
 
             {/* Content */}
             <div className="p-6 space-y-6 overflow-y-auto flex-1">
-              {/* Quick schedule bar */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 bg-slate-50 rounded-2xl text-xs border border-slate-100">
-                <div>
-                  <span className="text-slate-400 block text-[11px]">Lịch học:</span>
-                  <span className="font-semibold text-slate-800">
-                    {selectedClass.scheduleDays.join(', ')}
+              {/* Detailed schedule bar */}
+              <div className="p-4 bg-slate-50 rounded-2xl text-xs border border-slate-200 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-blue-600" />
+                    <span>Lịch học chi tiết theo ngày:</span>
                   </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 block text-[11px]">Khung giờ:</span>
-                  <span className="font-mono font-semibold text-slate-800">
-                    {selectedClass.startTime} – {selectedClass.endTime}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-400 block text-[11px]">Học phí mặc định:</span>
-                  <span className="font-mono font-semibold text-emerald-700">
+                  <span className="font-mono text-emerald-700 font-bold">
                     {formatVND(selectedClass.defaultTuitionRate)} / buổi
                   </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                  {selectedClass.schedules && selectedClass.schedules.length > 0 ? (
+                    selectedClass.schedules.map((s) => (
+                      <div
+                        key={s.day}
+                        className="p-2.5 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-0.5"
+                      >
+                        <span className="font-bold text-blue-700 block text-xs">{s.day}</span>
+                        <p className="font-mono text-slate-800 font-semibold">
+                          {s.startTime} – {s.endTime}
+                        </p>
+                        {s.room && (
+                          <p className="text-[10px] text-slate-400 truncate">{s.room}</p>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <div className="col-span-full p-2.5 bg-white rounded-xl border border-slate-200">
+                      <span className="font-bold text-slate-800">
+                        {selectedClass.scheduleDays.join(', ')}
+                      </span>
+                      <p className="font-mono text-slate-600 mt-0.5">
+                        {selectedClass.startTime} – {selectedClass.endTime}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -519,23 +627,26 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
       {/* Add Class Modal */}
       {showAddClassModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50">
+          <div className="bg-white rounded-3xl shadow-xl w-full max-w-2xl overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 flex flex-col max-h-[92vh]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50 shrink-0">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center">
                   <GraduationCap className="w-5 h-5" />
                 </div>
-                <h3 className="font-semibold text-slate-900 text-sm">Tạo lớp học mới</h3>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base">Tạo lớp học mới</h3>
+                  <p className="text-[11px] text-slate-500">Thiết lập thông tin và giờ học linh hoạt</p>
+                </div>
               </div>
               <button
                 onClick={() => setShowAddClassModal(false)}
-                className="p-1 text-slate-400 hover:text-slate-600"
+                className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            <form onSubmit={handleCreateClass} className="p-6 space-y-4">
+            <form onSubmit={handleCreateClass} className="p-6 space-y-4 overflow-y-auto flex-1">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1">
                   Tên lớp học <span className="text-rose-500">*</span>
@@ -546,7 +657,7 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                   placeholder="Ví dụ: Toán 9 - Luyện thi vào 10 Chuyên (Nhóm B)"
                   value={className}
                   onChange={(e) => setClassName(e.target.value)}
-                  className="w-full text-sm rounded-xl border border-slate-300 px-3.5 py-2 text-slate-800 outline-none focus:border-blue-500"
+                  className="w-full text-xs rounded-xl border border-slate-300 px-3.5 py-2.5 text-slate-800 outline-none focus:border-blue-500"
                 />
               </div>
 
@@ -556,7 +667,7 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                   <select
                     value={grade}
                     onChange={(e) => setGrade(Number(e.target.value))}
-                    className="w-full text-sm rounded-xl border border-slate-300 px-3 py-2 text-slate-800 bg-white"
+                    className="w-full text-xs rounded-xl border border-slate-300 px-3 py-2 text-slate-800 bg-white"
                   >
                     {[6, 7, 8, 9, 10, 11, 12].map((g) => (
                       <option key={g} value={g}>
@@ -575,28 +686,28 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                     step="5000"
                     value={defaultTuitionRate}
                     onChange={(e) => setDefaultTuitionRate(Number(e.target.value))}
-                    className="w-full text-sm rounded-xl border border-slate-300 px-3 py-2 font-mono text-right"
+                    className="w-full text-xs rounded-xl border border-slate-300 px-3 py-2 font-mono text-right"
                   />
                 </div>
               </div>
 
               {/* Schedule Days */}
-              <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+              <div className="space-y-1.5">
+                <label className="block text-xs font-semibold text-slate-700">
                   Lịch học trong tuần <span className="text-rose-500">*</span>
                 </label>
                 <div className="flex flex-wrap gap-1.5">
-                  {['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'].map((day) => {
+                  {DAYS_OF_WEEK.map((day) => {
                     const isSelected = scheduleDays.includes(day);
                     return (
                       <button
                         key={day}
                         type="button"
                         onClick={() => handleToggleDay(day)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
+                        className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
-                            : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
+                            ? 'bg-blue-600 text-white shadow-2xs'
+                            : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                         }`}
                       >
                         {day}
@@ -606,38 +717,194 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                 </div>
               </div>
 
-              {/* Time slot and Room */}
-              <div className="grid grid-cols-3 gap-3">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Bắt đầu</label>
-                  <input
-                    type="time"
-                    value={startTime}
-                    onChange={(e) => setStartTime(e.target.value)}
-                    className="w-full text-sm rounded-xl border border-slate-300 px-2 py-2 text-center font-mono"
-                  />
+              {/* Schedule Mode Selector: Same time vs Custom time per day */}
+              <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/60 pb-3">
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">
+                      Khung giờ học theo buổi
+                    </span>
+                    <span className="text-[11px] text-slate-500">
+                      Cho phép giờ học mỗi ngày khác nhau
+                    </span>
+                  </div>
+
+                  <div className="inline-flex p-1 bg-white border border-slate-200 rounded-xl">
+                    <button
+                      type="button"
+                      onClick={() => setUseCustomCreateTimes(false)}
+                      className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
+                        !useCustomCreateTimes
+                          ? 'bg-blue-600 text-white shadow-2xs'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      Cùng giờ các ngày
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setUseCustomCreateTimes(true)}
+                      className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1 ${
+                        useCustomCreateTimes
+                          ? 'bg-blue-600 text-white shadow-2xs'
+                          : 'text-slate-600 hover:text-slate-900'
+                      }`}
+                    >
+                      <Sparkles className="w-3 h-3 text-amber-500" />
+                      <span>Giờ riêng từng ngày</span>
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Kết thúc</label>
-                  <input
-                    type="time"
-                    value={endTime}
-                    onChange={(e) => setEndTime(e.target.value)}
-                    className="w-full text-sm rounded-xl border border-slate-300 px-2 py-2 text-center font-mono"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1">Phòng học</label>
-                  <input
-                    type="text"
-                    value={room}
-                    onChange={(e) => setRoom(e.target.value)}
-                    className="w-full text-sm rounded-xl border border-slate-300 px-3 py-2 text-slate-800"
-                  />
-                </div>
+
+                {/* Mode 1: Uniform Times for all days */}
+                {!useCustomCreateTimes && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div>
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Bắt đầu
+                      </label>
+                      <input
+                        type="time"
+                        value={startTime}
+                        onChange={(e) => setStartTime(e.target.value)}
+                        className="w-full text-xs rounded-xl border border-slate-300 px-3 py-2 text-center font-mono bg-white outline-none focus:border-blue-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Kết thúc
+                      </label>
+                      <input
+                        type="time"
+                        value={endTime}
+                        onChange={(e) => setEndTime(e.target.value)}
+                        className="w-full text-xs rounded-xl border border-slate-300 px-3 py-2 text-center font-mono bg-white outline-none focus:border-blue-500"
+                      />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-[11px] font-semibold text-slate-600 mb-1">
+                        Phòng học chung
+                      </label>
+                      <input
+                        type="text"
+                        value={room}
+                        onChange={(e) => setRoom(e.target.value)}
+                        placeholder="Phòng 201"
+                        className="w-full text-xs rounded-xl border border-slate-300 px-3 py-2 bg-white outline-none focus:border-blue-500"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Mode 2: Custom Per-Day Schedule (Different time for each day) */}
+                {useCustomCreateTimes && (
+                  <div className="space-y-3">
+                    {scheduleDays.length === 0 ? (
+                      <p className="text-xs text-slate-400 italic">
+                        Vui lòng tick chọn ít nhất một ngày học ở trên.
+                      </p>
+                    ) : (
+                      scheduleDays.map((day) => {
+                        const daySched = createSchedules.find((s) => s.day === day) || {
+                          day,
+                          startTime,
+                          endTime,
+                          room,
+                        };
+
+                        return (
+                          <div
+                            key={day}
+                            className="p-3 bg-white border border-slate-200 rounded-2xl space-y-2 shadow-2xs"
+                          >
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                              <span className="font-bold text-xs text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100 flex items-center gap-1.5">
+                                <Clock className="w-3.5 h-3.5 text-blue-600" />
+                                <span>{day}</span>
+                              </span>
+
+                              {/* Quick presets for this specific day */}
+                              <div className="flex items-center gap-1 text-[10px]">
+                                <button
+                                  type="button"
+                                  onClick={() => handleApplyPreset(day, '08:00', '09:30')}
+                                  className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+                                >
+                                  Sáng 8h-9h30
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleApplyPreset(day, '14:30', '16:00')}
+                                  className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+                                >
+                                  Chiều 14h30-16h
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleApplyPreset(day, '18:00', '19:30')}
+                                  className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+                                >
+                                  Tối 18h-19h30
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => handleApplyPreset(day, '19:30', '21:00')}
+                                  className="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600"
+                                >
+                                  Tối muộn 19h30-21h
+                                </button>
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[11px] text-slate-400 w-10 shrink-0">Từ:</span>
+                                <input
+                                  type="time"
+                                  required
+                                  value={daySched.startTime}
+                                  onChange={(e) =>
+                                    handleUpdateCreateDayTime(day, 'startTime', e.target.value)
+                                  }
+                                  className="w-full text-xs font-mono rounded-xl border border-slate-300 px-2.5 py-1.5 text-center outline-none focus:border-blue-500"
+                                />
+                              </div>
+
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[11px] text-slate-400 w-10 shrink-0">Đến:</span>
+                                <input
+                                  type="time"
+                                  required
+                                  value={daySched.endTime}
+                                  onChange={(e) =>
+                                    handleUpdateCreateDayTime(day, 'endTime', e.target.value)
+                                  }
+                                  className="w-full text-xs font-mono rounded-xl border border-slate-300 px-2.5 py-1.5 text-center outline-none focus:border-blue-500"
+                                />
+                              </div>
+
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[11px] text-slate-400 w-12 shrink-0">Phòng:</span>
+                                <input
+                                  type="text"
+                                  value={daySched.room || ''}
+                                  onChange={(e) =>
+                                    handleUpdateCreateDayTime(day, 'room', e.target.value)
+                                  }
+                                  placeholder={room || 'Phòng học'}
+                                  className="w-full text-xs rounded-xl border border-slate-300 px-2.5 py-1.5 outline-none focus:border-blue-500"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })
+                    )}
+                  </div>
+                )}
               </div>
 
-              <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
+              <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 shrink-0">
                 <button
                   type="button"
                   onClick={() => setShowAddClassModal(false)}

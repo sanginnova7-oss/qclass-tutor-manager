@@ -468,22 +468,60 @@ Em hãy thử áp dụng vào bài tập của mình xem nhé!`;
             {classes.map((cls) => (
               <div
                 key={cls.id}
-                className="p-4 rounded-2xl border border-slate-200 bg-slate-50/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
+                className="p-4 sm:p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs space-y-3 text-xs"
               >
-                <div>
-                  <span className="text-[10px] font-mono font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">
-                    Khối {cls.grade}
-                  </span>
-                  <h4 className="font-bold text-slate-900 text-sm mt-1">{cls.name}</h4>
-                  <div className="flex flex-wrap items-center gap-3 text-slate-600 mt-1.5">
-                    <span>🕒 {cls.scheduleDays.join(', ')} ({cls.startTime} - {cls.endTime})</span>
-                    <span>·</span>
-                    <span>📍 {cls.room || 'Phòng học chính'}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] font-mono font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">
+                        Khối {cls.grade}
+                      </span>
+                      <h4 className="font-bold text-slate-900 text-sm">{cls.name}</h4>
+                    </div>
+                    <p className="text-slate-500 text-[11px] mt-0.5">
+                      Phòng: {cls.room || 'Phòng học chính'}
+                    </p>
+                  </div>
+
+                  <div className="px-3 py-1.5 bg-emerald-50 text-emerald-700 font-semibold rounded-xl border border-emerald-200 text-center shrink-0 self-start sm:self-auto">
+                    Đang theo học
                   </div>
                 </div>
 
-                <div className="px-3 py-1.5 bg-emerald-50 text-emerald-700 font-semibold rounded-xl border border-emerald-200 text-center shrink-0">
-                  Đang theo học
+                {/* Schedule cards */}
+                <div className="pt-2 border-t border-slate-100">
+                  <span className="font-semibold text-slate-700 block mb-2">
+                    Lịch học & Khung giờ theo từng ngày:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                    {cls.schedules && cls.schedules.length > 0 ? (
+                      cls.schedules.map((s) => (
+                        <div
+                          key={s.day}
+                          className="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1"
+                        >
+                          <span className="font-bold text-blue-700 block">{s.day}</span>
+                          <span className="font-mono text-slate-800 font-semibold block">
+                            🕒 {s.startTime} – {s.endTime}
+                          </span>
+                          {s.room && (
+                            <span className="text-[10px] text-slate-400 block truncate">
+                              📍 {s.room}
+                            </span>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-200/80">
+                        <span className="font-bold text-slate-700">
+                          {cls.scheduleDays.join(', ')}
+                        </span>
+                        <span className="font-mono text-slate-800 font-semibold block mt-0.5">
+                          🕒 {cls.startTime} – {cls.endTime}
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

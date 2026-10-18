@@ -210,12 +210,35 @@ export const ParentPortal: React.FC<ParentPortalProps> = ({ currentUser }) => {
                 <span>Lớp học của con</span>
               </h3>
               {classes.map((cls) => (
-                <div key={cls.id} className="p-3.5 bg-slate-50 rounded-xl text-xs space-y-1">
-                  <h4 className="font-bold text-slate-900">{cls.name}</h4>
-                  <p className="text-slate-600">
-                    Lịch học: <strong>{cls.scheduleDays.join(', ')}</strong> ({cls.startTime} - {cls.endTime})
+                <div key={cls.id} className="p-3.5 bg-slate-50 rounded-xl text-xs space-y-2 border border-slate-100">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-bold text-slate-900">{cls.name}</h4>
+                    <span className="text-[10px] font-mono font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded">
+                      Khối {cls.grade}
+                    </span>
+                  </div>
+
+                  {cls.schedules && cls.schedules.length > 0 ? (
+                    <div className="space-y-1 pt-1 border-t border-slate-200/60">
+                      {cls.schedules.map((s) => (
+                        <div key={s.day} className="flex items-center justify-between text-slate-700">
+                          <span className="font-semibold text-blue-800">{s.day}:</span>
+                          <span className="font-mono font-medium">
+                            🕒 {s.startTime} – {s.endTime}
+                            {s.room && s.room !== cls.room ? ` (${s.room})` : ''}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-slate-600">
+                      Lịch học: <strong>{cls.scheduleDays.join(', ')}</strong> ({cls.startTime} - {cls.endTime})
+                    </p>
+                  )}
+
+                  <p className="text-slate-500 text-[11px] pt-1">
+                    Địa điểm: {cls.room || 'Phòng học chính'}
                   </p>
-                  <p className="text-slate-500 text-[11px]">Địa điểm: {cls.room || 'Phòng học chính'}</p>
                 </div>
               ))}
             </div>

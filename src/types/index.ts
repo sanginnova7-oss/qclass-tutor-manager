@@ -37,6 +37,13 @@ export interface Student {
   updatedAt: string;
 }
 
+export interface DaySchedule {
+  day: string; // e.g. 'Thứ 2', 'Thứ 7'
+  startTime: string; // e.g. '17:30'
+  endTime: string; // e.g. '19:00'
+  room?: string; // e.g. 'Phòng 201'
+}
+
 export interface ClassItem {
   id: string;
   name: string;
@@ -46,6 +53,7 @@ export interface ClassItem {
   scheduleDays: string[]; // e.g. ['Thứ 3', 'Thứ 5', 'Thứ 7']
   startTime: string; // '18:00'
   endTime: string; // '19:30'
+  schedules?: DaySchedule[]; // custom time per day
   room?: string;
   studentIds: string[];
   maxCapacity?: number;

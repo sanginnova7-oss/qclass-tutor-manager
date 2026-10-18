@@ -142,9 +142,23 @@ export const StudentProfileView: React.FC<StudentProfileViewProps> = ({
                 Khối {student.grade} · Trường: {student.school} · Ngày nhập học:{' '}
                 {formatDateVN(student.enrollmentDate)}
               </p>
-              <p className="text-xs text-blue-600 font-medium">
-                Lớp hiện tại: {assignedClass ? assignedClass.name : 'Chưa xếp lớp'}
-              </p>
+              <div className="text-xs text-blue-700 font-medium">
+                <span>Lớp hiện tại: </span>
+                <strong className="text-slate-900">{assignedClass ? assignedClass.name : 'Chưa xếp lớp'}</strong>
+                {assignedClass && assignedClass.schedules && assignedClass.schedules.length > 0 ? (
+                  <span className="text-slate-500 font-normal ml-1.5 font-mono text-[11px]">
+                    (
+                    {assignedClass.schedules
+                      .map((s) => `${s.day}: ${s.startTime}–${s.endTime}`)
+                      .join(' · ')}
+                    )
+                  </span>
+                ) : assignedClass ? (
+                  <span className="text-slate-500 font-normal ml-1.5 font-mono text-[11px]">
+                    ({assignedClass.scheduleDays.join(', ')} · {assignedClass.startTime}–{assignedClass.endTime})
+                  </span>
+                ) : null}
+              </div>
             </div>
           </div>
 

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { db } from '../../services/db';
 import { AttendanceStatus } from '../../types';
-import { formatDateVN, formatVND, getTodayISODate } from '../../utils/formatters';
+import { formatDateVN, formatVND, getTodayISODate, getDayOfWeekVN } from '../../utils/formatters';
 
 interface AttendanceViewProps {
   initialClassId?: string | null;
@@ -162,6 +162,17 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({
     if (item?.status) liveCounts[item.status]++;
   });
 
+  const attendanceDayOfWeek = getDayOfWeekVN(attendanceDate);
+  const matchedDaySchedule = currentClass?.schedules?.find(
+    (s) => s.day.toLowerCase() === attendanceDayOfWeek.toLowerCase()
+  );
+  const isScheduledDay = currentClass?.scheduleDays.some(
+    (d) => d.toLowerCase() === attendanceDayOfWeek.toLowerCase()
+  );
+  const effectiveStartTime = matchedDaySchedule?.startTime || currentClass?.startTime || '18:00';
+  const effectiveEndTime = matchedDaySchedule?.endTime || currentClass?.endTime || '19:30';
+  const effectiveRoom = matchedDaySchedule?.room || currentClass?.room || 'Phòng học chính';
+
   return (
     <div className="space-y-6 pb-20 md:pb-10">
       {/* Top Header & Tab Toggle */}
@@ -247,6 +258,42 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({
                 />
               </div>
             </div>
+
+            {/* Class schedule info for selected date */}
+            {currentClass && (
+              <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-slate-50/90 rounded-xl border border-slate-200/90 text-xs">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <div className="flex items-center gap-1.5 text-blue-700 font-bold bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-100">
+                    <Clock className="w-3.5 h-3.5 text-blue-600" />
+                    <span>{attendanceDayOfWeek} ({formatDateVN(attendanceDate)})</span>
+                  </div>
+                  <span className="font-mono font-bold text-slate-800 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs">
+                    🕒 {effectiveStartTime} – {effectiveEndTime}
+                  </span>
+                  <span className="text-slate-500 font-medium">
+                    · Phòng: <strong className="text-slate-700">{effectiveRoom}</strong>
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border ${
+                      isScheduledDay
+                        ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                        : 'bg-amber-50 text-amber-700 border-amber-200'
+                    }`}
+                  >
+                    {isScheduledDay ? '✓ Lịch học cố định' : '⚡ Buổi bù / Tăng cường'}
+                  </span>
+
+                  {currentClass.schedules && currentClass.schedules.length > 1 && (
+                    <span className="text-[10px] text-slate-400 font-medium hidden sm:inline">
+                      (Lớp có giờ riêng từng ngày)
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* Quick Actions & Live Stats Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-100 text-xs">
