@@ -88,7 +88,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onTabChange }) => 
       badgeColor: 'bg-amber-600 text-white',
     },
     { id: 'reports', label: 'Báo cáo & Tăng trưởng', icon: BarChart3 },
-    { id: 'settings', label: 'Cài đặt hệ thống', icon: Settings },
+    { id: 'settings', label: 'Thiết lập hệ thống', icon: Settings },
   ];
 
   return (

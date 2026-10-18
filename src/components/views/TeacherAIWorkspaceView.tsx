@@ -37,6 +37,7 @@ import {
   WorksheetType,
 } from '../../types';
 import { formatDateVN, formatVND } from '../../utils/formatters';
+import { realtimeService } from '../../services/realtimeService';
 
 interface TeacherAIWorkspaceViewProps {
   onSelectStudent: (studentId: string) => void;
@@ -544,7 +545,12 @@ export const TeacherAIWorkspaceView: React.FC<TeacherAIWorkspaceViewProps> = ({
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(JSON.stringify(generatedLessonPlan, null, 2));
-                      alert('Đã sao chép cấu trúc giáo án!');
+                      realtimeService.dispatchEvent({
+                        type: 'system',
+                        title: 'Đã sao chép giáo án',
+                        description: 'Cấu trúc giáo án phân hóa đã được sao chép vào bộ nhớ tạm thành công.',
+                        badge: 'Clipboard',
+                      });
                     }}
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer self-start sm:self-auto"
                   >
@@ -917,8 +923,16 @@ export const TeacherAIWorkspaceView: React.FC<TeacherAIWorkspaceViewProps> = ({
 
                   <button
                     onClick={() => {
-                      if (onOpenWorksheetPrint) onOpenWorksheetPrint(ws.id);
-                      else alert(`Mở bản in định dạng PDF chuẩn cho phiếu: ${ws.title}`);
+                      if (onOpenWorksheetPrint) {
+                        onOpenWorksheetPrint(ws.id);
+                      } else {
+                        realtimeService.dispatchEvent({
+                          type: 'system',
+                          title: 'In phiếu bài tập',
+                          description: `Chuẩn bị bản in định dạng PDF chuẩn cho phiếu: ${ws.title}`,
+                          badge: 'PDF Print',
+                        });
+                      }
                     }}
                     className="flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 rounded-xl text-xs font-semibold shadow-2xs cursor-pointer"
                   >

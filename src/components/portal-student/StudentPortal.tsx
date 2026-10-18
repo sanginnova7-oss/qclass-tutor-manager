@@ -25,7 +25,7 @@ import {
 import { db } from '../../services/db';
 import { formatDateVN, formatDateTimeVN, formatVND } from '../../utils/formatters';
 import { OnlineTestItem, QuestionBankItem, UserProfile } from '../../types';
-import { PWAInstallButton } from '../common/PWAInstallButton';
+import { realtimeService } from '../../services/realtimeService';
 
 interface StudentPortalProps {
   currentUser: UserProfile;
@@ -198,12 +198,8 @@ Em hãy thử áp dụng vào bài tập của mình xem nhé!`;
           </div>
         </div>
 
-        {/* Remaining lessons indicator & Install Button */}
+        {/* Remaining lessons indicator */}
         <div className="flex items-center gap-3">
-          <PWAInstallButton
-            variant="pill"
-            className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-md"
-          />
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-xs flex items-center gap-4 shrink-0">
             <div>
               <span className="text-blue-200 block text-[11px]">Gói học phí hiện tại:</span>
@@ -988,7 +984,12 @@ Em hãy thử áp dụng vào bài tập của mình xem nhé!`;
                 <button
                   onClick={() => {
                     db.incrementResourceDownload(res.id);
-                    alert(`Đã bắt đầu tải xuống tài liệu: ${res.title}`);
+                    realtimeService.dispatchEvent({
+                      type: 'system',
+                      title: 'Đang tải xuống tài liệu',
+                      description: `Bắt đầu tải xuống: ${res.title} (${res.fileSize || '1.5 MB'})`,
+                      badge: 'Kho tài liệu',
+                    });
                   }}
                   className="p-2 text-blue-600 hover:bg-blue-50 rounded-xl transition-colors cursor-pointer shrink-0"
                   title="Tải về"

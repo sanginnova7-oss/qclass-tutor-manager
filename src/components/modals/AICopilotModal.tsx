@@ -18,6 +18,7 @@ import {
 import { db } from '../../services/db';
 import { DifficultyLevel, QuestionType, Student } from '../../types';
 import { formatDateVN, formatVND } from '../../utils/formatters';
+import { realtimeService } from '../../services/realtimeService';
 
 interface AICopilotModalProps {
   isOpen: boolean;
@@ -605,7 +606,12 @@ Thời lượng dự kiến: 90 phút | Sĩ số: 15–20 học sinh
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(diagnosticResult);
-                        alert('Đã sao chép kết quả phân tích!');
+                        realtimeService.dispatchEvent({
+                          type: 'system',
+                          title: 'Đã sao chép phân tích AI',
+                          description: 'Kết quả phân tích năng lực học sinh đã được sao chép vào bộ nhớ tạm.',
+                          badge: 'AI Copilot',
+                        });
                       }}
                       className="text-xs text-slate-600 hover:text-blue-600 font-semibold flex items-center gap-1 cursor-pointer"
                     >
@@ -676,7 +682,12 @@ Thời lượng dự kiến: 90 phút | Sĩ số: 15–20 học sinh
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(lessonPlan);
-                        alert('Đã sao chép giáo án!');
+                        realtimeService.dispatchEvent({
+                          type: 'system',
+                          title: 'Đã sao chép giáo án',
+                          description: 'Giáo án tinh gọn 90 phút đã được sao chép vào bộ nhớ tạm.',
+                          badge: 'AI Copilot',
+                        });
                       }}
                       className="text-xs text-slate-600 hover:text-purple-600 font-semibold flex items-center gap-1 cursor-pointer"
                     >

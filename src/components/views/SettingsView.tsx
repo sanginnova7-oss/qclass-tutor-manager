@@ -15,11 +15,13 @@ import {
   RefreshCw,
   Smartphone,
   Monitor,
+  X,
 } from 'lucide-react';
 import { db } from '../../services/db';
 import { AppSettings } from '../../types';
 import { GoogleSheetsSyncModal } from '../modals/GoogleSheetsSyncModal';
 import { PWAInstallButton } from '../common/PWAInstallButton';
+import { realtimeService } from '../../services/realtimeService';
 
 export const SettingsView: React.FC = () => {
   const currentSettings = db.getSettings();
@@ -29,6 +31,7 @@ export const SettingsView: React.FC = () => {
   const [showSqlModal, setShowSqlModal] = useState(false);
   const [restoreMessage, setRestoreMessage] = useState<string | null>(null);
   const [isGoogleSheetsModalOpen, setIsGoogleSheetsModalOpen] = useState(false);
+  const [showResetConfirmModal, setShowResetConfirmModal] = useState(false);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,11 +41,19 @@ export const SettingsView: React.FC = () => {
   };
 
   const handleResetData = () => {
-    if (window.confirm('Thầy có chắc chắn muốn khôi phục dữ liệu mẫu ban đầu? Mọi dữ liệu chỉnh sửa cục bộ sẽ được hoàn tác.')) {
-      db.resetToDefault();
-      setSettings(db.getSettings());
-      alert('Đã khôi phục dữ liệu mẫu thành công!');
-    }
+    setShowResetConfirmModal(true);
+  };
+
+  const confirmResetData = () => {
+    db.resetToDefault();
+    setSettings(db.getSettings());
+    setShowResetConfirmModal(false);
+    realtimeService.dispatchEvent({
+      type: 'system',
+      title: 'Khôi phục dữ liệu mẫu',
+      description: 'Đã hoàn tất khôi phục cơ sở dữ liệu mẫu chuẩn của hệ thống.',
+      badge: 'Database',
+    });
   };
 
   const handleExportJson = () => {
@@ -69,11 +80,27 @@ export const SettingsView: React.FC = () => {
           setSettings(db.getSettings());
           setRestoreMessage('Đã nhập và khôi phục dữ liệu thành công!');
           setTimeout(() => setRestoreMessage(null), 3000);
+          realtimeService.dispatchEvent({
+            type: 'system',
+            title: 'Khôi phục dữ liệu thành công',
+            description: 'Đã nhập dữ liệu từ file sao lưu JSON thành công.',
+            badge: 'Backup Restore',
+          });
         } else {
-          alert('File dữ liệu không đúng định dạng QClass.');
+          realtimeService.dispatchEvent({
+            type: 'system',
+            title: 'Lỗi định dạng file',
+            description: 'File dữ liệu không đúng định dạng sao lưu của QClass.',
+            badge: 'Import Error',
+          });
         }
       } catch (err) {
-        alert('Có lỗi xảy ra khi đọc file sao lưu.');
+        realtimeService.dispatchEvent({
+          type: 'system',
+          title: 'Lỗi đọc file',
+          description: 'Có lỗi xảy ra khi đọc file sao lưu JSON.',
+          badge: 'File Error',
+        });
       }
     };
     reader.readAsText(file);
@@ -93,7 +120,7 @@ export const SettingsView: React.FC = () => {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-bold text-slate-900 tracking-tight">Cài đặt hệ thống</h2>
+          <h2 className="text-lg font-bold text-slate-900 tracking-tight">Thiết lập hệ thống</h2>
           <p className="text-xs text-slate-500">
             Cấu hình quy tắc trừ buổi học phí, đơn giá chuẩn, thông tin giáo viên và sao lưu dữ liệu
           </p>
@@ -102,7 +129,7 @@ export const SettingsView: React.FC = () => {
         {saveSuccess && (
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
             <CheckCircle2 className="w-4 h-4" />
-            <span>Đã lưu cài đặt!</span>
+            <span>Đã lưu thiết lập!</span>
           </span>
         )}
       </div>
@@ -458,7 +485,7 @@ export const SettingsView: React.FC = () => {
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-sm font-bold text-slate-900">
-                  Cài đặt ứng dụng QClass ra Desktop / Điện thoại (PWA)
+                  Tải & Cài đặt ứng dụng ra thiết bị (PWA)
                 </h3>
                 <span className="text-[10px] bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-bold">
                   Progressive Web App
@@ -547,6 +574,48 @@ export const SettingsView: React.FC = () => {
             setSettings(db.getSettings());
           }}
         />
+      )}
+
+      {/* Confirmation Modal for Resetting to Default Sample Data */}
+      {showResetConfirmModal && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in"
+          onClick={() => setShowResetConfirmModal(false)}
+        >
+          <div
+            className="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl border border-slate-200 space-y-4 animate-in zoom-in-95"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-bold text-slate-900 text-sm">Xác nhận khôi phục dữ liệu mẫu?</h3>
+                <p className="text-xs text-slate-500 leading-relaxed">
+                  Hệ thống sẽ hoàn tác và khôi phục toàn bộ danh sách lớp học, học sinh, điểm số và học phí về bộ dữ liệu mẫu chuẩn ban đầu. Mọi thay đổi bạn vừa tạo cục bộ sẽ được thiết lập lại.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
+              <button
+                type="button"
+                onClick={() => setShowResetConfirmModal(false)}
+                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-xl hover:bg-slate-100 transition-colors"
+              >
+                Hủy bỏ
+              </button>
+              <button
+                type="button"
+                onClick={confirmResetData}
+                className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors cursor-pointer"
+              >
+                Đồng ý khôi phục
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

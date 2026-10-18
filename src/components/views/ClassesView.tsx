@@ -22,6 +22,7 @@ import { ClassItem, DaySchedule } from '../../types';
 import { formatDateVN, formatVND } from '../../utils/formatters';
 import { EditClassModal } from '../modals/EditClassModal';
 import { ExcelImportModal } from '../modals/ExcelImportModal';
+import { realtimeService } from '../../services/realtimeService';
 
 interface ClassesViewProps {
   onOpenAttendanceForClass: (classId: string) => void;
@@ -43,6 +44,7 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
   const [showAddClassModal, setShowAddClassModal] = useState(false);
   const [editingClass, setEditingClass] = useState<ClassItem | null>(null);
   const [classToDelete, setClassToDelete] = useState<ClassItem | null>(null);
+  const [studentToRemove, setStudentToRemove] = useState<{ classId: string; studentId: string; studentName: string } | null>(null);
 
   // Excel bulk import state
   const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
@@ -154,8 +156,24 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
   };
 
   const handleRemoveStudent = (classId: string, studentId: string) => {
-    if (confirm('Bạn có chắc muốn xóa học sinh này khỏi lớp?')) {
-      db.removeStudentFromClass(classId, studentId);
+    const st = students.find((s) => s.id === studentId);
+    setStudentToRemove({
+      classId,
+      studentId,
+      studentName: st?.fullName || 'Học sinh',
+    });
+  };
+
+  const handleConfirmRemoveStudent = () => {
+    if (studentToRemove) {
+      db.removeStudentFromClass(studentToRemove.classId, studentToRemove.studentId);
+      realtimeService.dispatchEvent({
+        type: 'student',
+        title: 'Đã xóa học sinh khỏi lớp',
+        description: `Đã xóa học sinh ${studentToRemove.studentName} khỏi danh sách lớp học.`,
+        badge: 'Lớp học',
+      });
+      setStudentToRemove(null);
     }
   };
 
@@ -375,6 +393,44 @@ export const ClassesView: React.FC<ClassesViewProps> = ({
                 className="px-4 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl shadow-xs cursor-pointer"
               >
                 Đồng ý xóa lớp
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Remove Student from Class Confirmation Dialog */}
+      {studentToRemove && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
+          <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mx-auto">
+              <AlertTriangle className="w-6 h-6" />
+            </div>
+            <div className="text-center">
+              <h3 className="text-base font-bold text-slate-900">
+                Xóa học sinh khỏi lớp học?
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                Bạn có chắc muốn xóa em <strong className="text-slate-800">{studentToRemove.studentName}</strong> khỏi danh sách lớp này?
+              </p>
+            </div>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
+              Hồ sơ học sinh, điểm danh cũ và lịch sử học phí của em vẫn được lưu trữ nguyên vẹn trên hệ thống.
+            </div>
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <button
+                type="button"
+                onClick={() => setStudentToRemove(null)}
+                className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 rounded-xl hover:bg-slate-100"
+              >
+                Hủy bỏ
+              </button>
+              <button
+                type="button"
+                onClick={handleConfirmRemoveStudent}
+                className="px-4 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl shadow-xs cursor-pointer"
+              >
+                Xác nhận xóa
               </button>
             </div>
           </div>

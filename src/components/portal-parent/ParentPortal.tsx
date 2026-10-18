@@ -22,7 +22,6 @@ import { db } from '../../services/db';
 import { formatDateVN, formatDateTimeVN, formatVND } from '../../utils/formatters';
 import { getVietQRUrl } from '../../utils/vietqr';
 import { UserProfile } from '../../types';
-import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface ParentPortalProps {
   currentUser: UserProfile;
@@ -91,13 +90,8 @@ export const ParentPortal: React.FC<ParentPortalProps> = ({ currentUser }) => {
           </p>
         </div>
 
-        {/* Actions & Child Selector */}
+        {/* Child Selector */}
         <div className="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
-          <PWAInstallButton
-            variant="pill"
-            className="bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200"
-          />
-
           <div className="flex items-center gap-2">
             <span className="text-xs text-slate-500 font-medium">Chọn con:</span>
             <select

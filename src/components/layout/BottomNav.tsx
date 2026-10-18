@@ -58,7 +58,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({ currentTab, onTabChange })
     { id: 'centers', label: 'Cơ sở & Giáo viên', icon: Building2, desc: 'Chi nhánh, phòng học, nhân sự' },
     { id: 'tasks', label: 'Nhiệm vụ & Tự động', icon: CheckSquare, desc: 'Task tự động & audit log' },
     { id: 'reports', label: 'Báo cáo & Tăng trưởng', icon: BarChart3, desc: 'Thống kê tài chính, điểm danh' },
-    { id: 'settings', label: 'Cài đặt hệ thống', icon: Settings, desc: 'Đơn giá, quy tắc trừ buổi, sao lưu' },
+    { id: 'settings', label: 'Thiết lập hệ thống', icon: Settings, desc: 'Đơn giá, quy tắc trừ buổi, sao lưu' },
   ];
 
   const isMoreTabActive = [

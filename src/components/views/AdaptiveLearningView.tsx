@@ -22,6 +22,7 @@ import {
 import { db } from '../../services/db';
 import { ErrorCategory, KnowledgeTopic, StudentTopicMastery } from '../../types';
 import { formatDateVN } from '../../utils/formatters';
+import { realtimeService } from '../../services/realtimeService';
 
 interface AdaptiveLearningViewProps {
   onSelectStudent?: (studentId: string) => void;
@@ -66,7 +67,12 @@ export const AdaptiveLearningView: React.FC<AdaptiveLearningViewProps> = ({ onSe
     if (!activeStudent) return;
     const success = db.setTeacherMasteryOverride(activeStudent.id, topicId, overrideScore);
     if (success) {
-      alert(`Đã lưu điểm thành thạo của học sinh thành ${overrideScore}/100.`);
+      realtimeService.dispatchEvent({
+        type: 'test',
+        title: 'Cập nhật điểm thành thạo',
+        description: `Đã lưu điểm thành thạo của ${activeStudent.fullName} thành ${overrideScore}/100.`,
+        badge: 'Adaptive AI',
+      });
     }
     setOverrideTopicId(null);
   };

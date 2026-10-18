@@ -86,7 +86,13 @@ export const GoogleSheetsSyncModal: React.FC<GoogleSheetsSyncModalProps> = ({
         setAccessToken(res.accessToken);
       }
     } catch (err: any) {
-      setErrorMessage(err?.message || 'Đăng nhập Google thất bại. Vui lòng thử lại.');
+      if (err?.code === 'auth/popup-closed-by-user') {
+        setErrorMessage('Cửa sổ đăng nhập đã được đóng trước khi cấp quyền.');
+      } else if (err?.code === 'auth/access-denied' || err?.message?.includes('access_denied')) {
+        setErrorMessage('Tài khoản chưa được cấp quyền truy cập. Vui lòng thử lại với tài khoản Google đã phê duyệt.');
+      } else {
+        setErrorMessage(err?.message || 'Đăng nhập Google thất bại. Vui lòng thử lại.');
+      }
     } finally {
       setIsLoadingAuth(false);
     }

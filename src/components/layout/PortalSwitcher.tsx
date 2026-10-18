@@ -14,7 +14,6 @@ import { PortalType, UserProfile } from '../../types';
 import { db } from '../../services/db';
 import { realtimeService, RealtimeState } from '../../services/realtimeService';
 import { RealtimeStatusModal } from '../modals/RealtimeStatusModal';
-import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface PortalSwitcherProps {
   currentPortal: PortalType;
@@ -107,9 +106,6 @@ export const PortalSwitcher: React.FC<PortalSwitcherProps> = ({
             <span>AI Copilot V3</span>
           </button>
         )}
-
-        {/* PWA Install Button for mobile and desktop */}
-        <PWAInstallButton variant="portal" />
 
         {/* Realtime Live Pulse Badge */}
         <button

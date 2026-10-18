@@ -5,7 +5,6 @@ import { db } from '../../services/db';
 import { formatDateVN } from '../../utils/formatters';
 import { realtimeService, RealtimeState } from '../../services/realtimeService';
 import { RealtimeStatusModal } from '../modals/RealtimeStatusModal';
-import { PWAInstallButton } from '../common/PWAInstallButton';
 
 interface TopBarProps {
   currentTab: NavTab;
@@ -57,7 +56,7 @@ export const TopBar: React.FC<TopBarProps> = ({
     centers: 'Cơ sở, Phòng học & Giáo viên',
     tasks: 'Nhiệm vụ & Tự động hóa',
     reports: 'Báo cáo & Tăng trưởng',
-    settings: 'Cài đặt hệ thống',
+    settings: 'Thiết lập hệ thống',
   };
 
   return (
@@ -116,10 +115,15 @@ export const TopBar: React.FC<TopBarProps> = ({
           </button>
 
           {showAlertsDropdown && (
-            <div
-              className="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <>
+              <div
+                className="fixed inset-0 z-40"
+                onClick={() => setShowAlertsDropdown(false)}
+              />
+              <div
+                className="absolute right-0 mt-2 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95"
+                onClick={(e) => e.stopPropagation()}
+              >
               <div className="px-4 py-2 border-b border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-800">
                   Cảnh báo học phí ({lowLessonsStudents.length})
@@ -168,7 +172,8 @@ export const TopBar: React.FC<TopBarProps> = ({
                 )}
               </div>
             </div>
-          )}
+          </>
+        )}
         </div>
 
         {/* Realtime Status Indicator Badge */}
@@ -203,9 +208,6 @@ export const TopBar: React.FC<TopBarProps> = ({
           isOpen={isRealtimeModalOpen}
           onClose={() => setIsRealtimeModalOpen(false)}
         />
-
-        {/* PWA Install Button for Desktop and Mobile */}
-        <PWAInstallButton variant="header" />
 
         {/* Google Sheets Sync Button */}
         {onOpenGoogleSheets && (

@@ -390,13 +390,12 @@
       "grade": 8,
       "defaultTuitionRate": 50000,
       "scheduleDays": [
-        "Thứ 2",
-        "Thứ 4",
-        "Thứ 7"
+        "Thứ 3",
+        "Thứ 5"
       ],
-      "startTime": "19:50",
-      "endTime": "21:50",
-      "room": "Phòng 1- Tầng 1",
+      "startTime": "17:30",
+      "endTime": "19:00",
+      "room": "Phòng 201 - Tầng 2",
       "studentIds": [
         "std-1",
         "std-2",
@@ -406,40 +405,20 @@
         "std-6"
       ],
       "status": "active",
-      "createdAt": "2026-09-01T08:00:00Z",
-      "schedules": [
-        {
-          "day": "Thứ 2",
-          "startTime": "19:50",
-          "endTime": "21:50",
-          "room": "Phòng 1- Tầng 1"
-        },
-        {
-          "day": "Thứ 4",
-          "startTime": "19:30",
-          "endTime": "21:30",
-          "room": "Phòng 1- Tầng 1"
-        },
-        {
-          "day": "Thứ 7",
-          "startTime": "17:00",
-          "endTime": "19:00",
-          "room": "Phòng 1- Tầng 1"
-        }
-      ]
+      "createdAt": "2026-09-01T08:00:00Z"
     },
     {
       "id": "class-2",
-      "name": "Toán 11 - Online (Nhóm A)",
+      "name": "Toán 9 - Luyện thi vào 10 (Nhóm A)",
       "subject": "Toán học",
-      "grade": 11,
+      "grade": 9,
       "defaultTuitionRate": 60000,
       "scheduleDays": [
-        "Thứ 6",
-        "Chủ nhật"
+        "Thứ 4",
+        "Thứ 7"
       ],
       "startTime": "18:00",
-      "endTime": "20:00",
+      "endTime": "19:45",
       "room": "Phòng 301 - Tầng 3",
       "studentIds": [
         "std-7",
@@ -452,21 +431,7 @@
         "std-14"
       ],
       "status": "active",
-      "createdAt": "2026-09-01T08:00:00Z",
-      "schedules": [
-        {
-          "day": "Thứ 6",
-          "startTime": "18:00",
-          "endTime": "20:00",
-          "room": "Phòng 301 - Tầng 3"
-        },
-        {
-          "day": "Chủ nhật",
-          "startTime": "19:30",
-          "endTime": "21:30",
-          "room": "Phòng 301 - Tầng 3"
-        }
-      ]
+      "createdAt": "2026-09-01T08:00:00Z"
     },
     {
       "id": "class-3",
